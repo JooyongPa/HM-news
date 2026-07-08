@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주용파의 오늘도 수고했어</title>
+<meta name="description" content="주용파가 매일 전하는 뉴스 — PICK 5, 디지털 브리핑, 대한 뉴스, 이번 주도 수고했어를 한곳에서.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="주용파의 오늘도 수고했어">
+<meta property="og:description" content="매일의 뉴스, 한곳에서 — PICK 5 · 디지털 브리핑 · 대한 뉴스 · 이번 주도 수고했어">
+<meta property="og:image" content="https://hm-news.vercel.app/og.png">
+<meta property="og:url" content="https://hm-news.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf8f3;
+    --ink: #1c1b18;
+    --ink-soft: #5c5a52;
+    --ink-muted: #8f8a80;
+    --rule: #d8d3c8;
+    --rule-strong: #1c1b18;
+    --pick5-bg: #e1f5ee; --pick5-fg: #085041; --pick5-mid: #0f6e56;
+    --digital-bg: #eeedfe; --digital-fg: #3c3489; --digital-mid: #534ab7;
+    --daehan-bg: #faece7; --daehan-fg: #712b13; --daehan-mid: #993c1d;
+    --gompapa-bg: #fbeaf0; --gompapa-fg: #72243e; --gompapa-mid: #993556;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* ── 제호 ── */
+  .masthead { text-align: center; border-bottom: 3px double var(--rule-strong); padding-bottom: 18px; }
+  .masthead .studio { font-size: 11px; letter-spacing: 3px; color: var(--ink-muted); }
+  .masthead .of { font-family: 'Noto Serif KR', serif; font-size: 15px; color: var(--ink-soft); margin-top: 10px; }
+  .masthead h1 { font-family: 'Noto Serif KR', serif; font-size: 42px; font-weight: 700; letter-spacing: 2px; line-height: 1.3; }
+  .masthead .dateline { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+  .masthead .slogan { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+  /* ── 섹션 탭 ── */
+  nav { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  nav button {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif; font-size: 14px; color: var(--ink-soft);
+    padding: 6px 14px; border-radius: 999px;
+  }
+  nav button:hover { background: #f0ede4; }
+  nav button.on { background: var(--ink); color: var(--paper); font-weight: 500; }
+
+  /* ── 1면 ── */
+  .lead { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  @media (max-width: 640px) { .lead { grid-template-columns: 1fr; } .side { border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--rule); padding-top: 16px; } }
+  .lead .headline { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 600; line-height: 1.45; margin: 12px 0 10px; }
+  .lead .deck { font-size: 14px; color: var(--ink-soft); }
+  .lead a { color: inherit; text-decoration: none; }
+  .lead a:hover .headline { text-decoration: underline; text-underline-offset: 4px; }
+  .side { border-left: 1px solid var(--rule); padding-left: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .side .item { border-top: 1px solid var(--rule); padding-top: 14px; }
+  .side .item:first-child { border-top: none; padding-top: 0; }
+  .side .item a { color: inherit; text-decoration: none; display: flex; gap: 10px; align-items: center; }
+  .side .item a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+  .side .cat-line { font-size: 12px; font-weight: 700; }
+  .side .t { font-size: 14px; margin-top: 2px; font-family: 'Noto Serif KR', serif; line-height: 1.5; }
+
+  /* ── 썸네일 ── */
+  .thumb { position: relative; border-radius: 10px; overflow: hidden; background: #eee9de; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb .ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .thumb .ph .tri { font-size: 26px; line-height: 1; }
+  .thumb .ph .nm { font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+  .thumb-big { aspect-ratio: 1 / 1; margin-top: 12px; }
+  .thumb-big .play { position: absolute; inset: 0; margin: auto; width: 46px; height: 46px; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; padding-left: 4px; }
+  .thumb-sm { width: 78px; aspect-ratio: 1 / 1; flex: none; }
+  .thumb-sm .ph .tri { font-size: 18px; }
+  .thumb-sm .ph .nm { display: none; }
+  .row img.mini { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex: none; }
+  .chan { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .chan a { font-size: 12px; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: 5px 14px; text-decoration: none; background: #fff; }
+  .chan a:hover { border-color: var(--ink-soft); }
+  .kakao-btn { display: inline-block; margin-bottom: 14px; background: #fee500; color: #191919; font-size: 13px; font-weight: 700; padding: 9px 22px; border-radius: 999px; text-decoration: none; }
+
+  .badge { display: inline-block; font-size: 12px; padding: 3px 12px; border-radius: 999px; font-weight: 500; }
+
+  /* ── 주간 발행 스트립 ── */
+  .weekstrip { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .weekstrip h2, .section-title { font-size: 13px; letter-spacing: 1px; color: var(--ink-muted); font-weight: 700; margin-bottom: 12px; }
+  .schedule { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  @media (max-width: 640px) { .schedule { grid-template-columns: repeat(2, 1fr); } }
+  .schedule .cell { border-radius: 10px; padding: 12px 14px; }
+  .schedule .d { font-size: 12px; }
+  .schedule .n { font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .schedule .m { font-size: 12px; opacity: .85; margin-top: 2px; }
+
+  /* ── 지난 호 (아카이브) ── */
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 20px 0 14px; }
+  .toolbar input {
+    flex: 1; min-width: 200px; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;
+    padding: 9px 14px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; color: var(--ink);
+  }
+  .toolbar input:focus { outline: none; border-color: var(--ink-soft); }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chips button { border: 1px solid var(--rule); background: #fff; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; font-size: 12px; padding: 5px 13px; border-radius: 999px; color: var(--ink-soft); }
+  .chips button.on { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .month-label { font-size: 13px; color: var(--ink-muted); font-weight: 700; margin: 18px 0 8px; }
+  .rows { border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #fff; }
+  .row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--rule); text-decoration: none; color: inherit; }
+  .row:first-child { border-top: none; }
+  .row:hover { background: #faf8f3; }
+  .row .title { flex: 1; font-size: 14px; }
+  .row .date { font-size: 13px; color: var(--ink-muted); white-space: nowrap; }
+  .row .arrow { color: var(--ink-muted); font-size: 13px; }
+  .empty { padding: 30px; text-align: center; color: var(--ink-muted); font-size: 14px; }
+
+  /* ── 발행 캘린더 ── */
+  .week-block { margin-top: 20px; }
+  .week-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .week-head .wk { font-size: 14px; font-weight: 700; }
+  .week-head .cnt { font-size: 12px; color: var(--ink-muted); }
+  .grid6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  @media (max-width: 640px) { .grid6 { grid-template-columns: repeat(3, 1fr); } }
+  .day { border: 1px solid var(--rule); border-radius: 10px; padding: 8px; background: #fff; min-height: 74px; }
+  .day .dh { font-size: 11px; color: var(--ink-muted); margin-bottom: 6px; }
+  .day .tag { display: block; border-radius: 6px; padding: 4px 7px; font-size: 11px; font-weight: 700; margin-top: 4px; text-decoration: none; }
+  .day a.tag:hover { filter: brightness(0.93); }
+  .day .tag:first-of-type { margin-top: 0; }
+
+  footer { text-align: center; border-top: 3px double var(--rule-strong); margin-top: 40px; padding-top: 16px; font-size: 12px; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="studio">HEALING MIND STUDIO</div>
+    <div class="of">주용파<span style="font-size:11px; vertical-align: super;">의</span></div>
+    <h1>오늘도 수고했어</h1>
+    <div class="dateline" id="dateline"></div>
+    <div class="slogan">“정확한 정보, 깊이 있는 분석. 더 나은 내일을 위해.”</div>
+  </header>
+
+  <nav>
+    <button class="on" data-view="front">1면</button>
+    <button data-view="archive">지난 호</button>
+    <button data-view="calendar">발행 캘린더</button>
+  </nav>
+
+  <!-- ═══════════ 1면 ═══════════ -->
+  <main id="view-front">
+    <div class="lead" id="lead"></div>
+
+    <div class="weekstrip">
+      <h2>발행 시간표</h2>
+      <div class="schedule">
+        <div class="cell" style="background: var(--pick5-bg); color: var(--pick5-fg);">
+          <div class="d" style="color: var(--pick5-mid);">월 – 금</div>
+          <div class="n">주용파 PICK 5</div>
+          <div class="m">텍스트 카드뉴스 · 핵심 5가지</div>
+        </div>
+        <div class="cell" style="background: var(--digital-bg); color: var(--digital-fg);">
+          <div class="d" style="color: var(--digital-mid);">화</div>
+          <div class="n">디지털 브리핑</div>
+          <div class="m">영상 · AI·테크·플랫폼</div>
+        </div>
+        <div class="cell" style="background: var(--daehan-bg); color: var(--daehan-fg);">
+          <div class="d" style="color: var(--daehan-mid);">목</div>
+          <div class="n">대한 뉴스</div>
+          <div class="m">영상 · 대한민국 핵심 이슈</div>
+        </div>
+        <div class="cell" style="background: var(--gompapa-bg); color: var(--gompapa-fg);">
+          <div class="d" style="color: var(--gompapa-mid);">토</div>
+          <div class="n">이번 주도 수고했어</div>
+          <div class="m">영상 · 곰파파의 한 주 마무리</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ 지난 호 ═══════════ -->
+  <main id="view-archive" class="hidden">
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="제목으로 검색">
+      <div class="chips" id="chips"></div>
+    </div>
+    <div id="archive-list"></div>
+  </main>
+
+  <!-- ═══════════ 발행 캘린더 ═══════════ -->
+  <main id="view-calendar">
+    <div id="calendar" class="hidden"></div>
+  </main>
+
+  <footer>
+    <a class="kakao-btn" href="https://open.kakao.com/o/p7sGTDvi" target="_blank">주용파와 소통하기 →</a><br>
+    주용파 · Healing Mind Studio · <a href="https://litt.ly/h.m.studio">litt.ly/h.m.studio</a>
+  </footer>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   ★ 발행물 추가하는 곳 ★
+   새로 발행할 때마다 아래 목록 맨 위에 한 줄씩 추가하세요.
+   cat:     'pick5' | 'digital' | 'daehan' | 'gompapa'
+   insta / threads / blog: 채널별 게시물 주소 (없는 채널은 '' 로)
+   thumb:   표지 이미지 파일. 이 HTML 파일 옆의 thumbs 폴더에 넣고
+            'thumbs/파일명.png' 형식으로 적으세요. 파일이 아직 없어도
+            카테고리 색상의 대체 표지가 자동으로 표시됩니다.
+   ══════════════════════════════════════════════════════════════ */
+const POSTS = [
+  { date: '2026-07-08', cat: 'pick5', title: '삼성 역대 최고 이익 · 이란 지정학 급변 · UN AI 규범 논의',
+    insta: 'https://www.instagram.com/reel/DagZxj-zi6t/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DagaDbSk49i',
+    blog: 'https://blog.naver.com/act2lab/224339893817',
+    thumb: 'thumbs/2026-07-08_pick5.png' },
+  { date: '2026-07-07', cat: 'digital', title: '7월 7일 화요일 브리핑 — AI·테크·플랫폼 흐름',
+    insta: 'https://www.instagram.com/reel/DaeBXNjtwo6/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaeBdzhE9Br',
+    blog: 'https://blog.naver.com/act2lab/224338818830',
+    thumb: 'thumbs/2026-07-07_digital.jpg' },
+  { date: '2026-07-07', cat: 'pick5', title: '나토 AI 동맹 균열 · 중국 GLM 5.2 추격 · 허위조작정보법 시행',
+    insta: 'https://www.instagram.com/reel/Dad6YDazpnj/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Dad7YV3kwUk',
+    blog: 'https://blog.naver.com/act2lab/224338791590',
+    thumb: 'thumbs/2026-07-07_pick5.png' },
+  { date: '2026-07-06', cat: 'pick5', title: '미 고용 57,000명 충격 · USMCA 재편 · 클로드 사이언스',
+    insta: 'https://www.instagram.com/reel/DabTWyBzaSL/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DabToCDk9ed',
+    blog: 'https://blog.naver.com/act2lab/224337679818',
+    thumb: 'thumbs/2026-07-06_pick5.png' },
+  { date: '2026-07-04', cat: 'gompapa', title: '물가·환율·AI — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DaWf8qIBjdv/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaWgUmdEwBb',
+    blog: 'https://blog.naver.com/act2lab/224336035346',
+    thumb: 'thumbs/2026-07-04_gompapa.jpg' },
+  { date: '2026-07-03', cat: 'pick5', title: '삼전·닉스 역대급 폭락 · MGX $490억 펀드 · 소넷5 출시',
+    insta: 'https://www.instagram.com/reel/DaTlE7DTmct/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaTk141k1BH',
+    blog: 'https://blog.naver.com/act2lab/224334981906',
+    thumb: 'thumbs/2026-07-03_pick5.png' },
+  { date: '2026-07-02', cat: 'daehan', title: 'AI 반도체가 수출을 끌어올리는 사이, 고물가·고환율·증시 조정이 동시에 온다',
+    insta: 'https://www.instagram.com/reel/DaRE_LItHeh/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaRL4QeE7Sf',
+    blog: '',
+    thumb: 'thumbs/2026-07-02_daehan.jpg' },
+  { date: '2026-07-02', cat: 'pick5',   title: '7월 2일 목요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-07-01', cat: 'pick5',   title: '7월 1일 수요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-30', cat: 'digital', title: '6월 30일 화요일 브리핑 — AI·테크·플랫폼 흐름', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-30', cat: 'pick5',   title: '6월 30일 화요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-29', cat: 'pick5',   title: '6월 29일 월요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+];
+
+const CATS = {
+  pick5:   { name: 'PICK 5',        bg: 'var(--pick5-bg)',   fg: 'var(--pick5-fg)',   mid: 'var(--pick5-mid)' },
+  digital: { name: '디지털 브리핑', bg: 'var(--digital-bg)', fg: 'var(--digital-fg)', mid: 'var(--digital-mid)' },
+  daehan:  { name: '대한 뉴스',     bg: 'var(--daehan-bg)',  fg: 'var(--daehan-fg)',  mid: 'var(--daehan-mid)' },
+  gompapa: { name: '이번 주도 수고했어', bg: 'var(--gompapa-bg)', fg: 'var(--gompapa-fg)', mid: 'var(--gompapa-mid)' },
+};
+const DAYS = ['일','월','화','수','목','금','토'];
+
+const sorted = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
+
+function mainLink(p) {
+  return p.insta || p.threads || p.blog || '';
+}
+function fmt(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return `${d.getMonth() + 1}/${d.getDate()} ${DAYS[d.getDay()]}`;
+}
+function badge(cat, extra) {
+  const c = CATS[cat];
+  return `<span class="badge" style="background:${c.bg}; color:${c.fg};">${c.name}${extra || ''}</span>`;
+}
+function iso(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function weekNum(d) {
+  const start = new Date(d.getFullYear(), 0, 1);
+  return Math.ceil(((d - start) / 86400000 + start.getDay() + 1) / 7);
+}
+
+/* ── 제호 날짜줄 ── */
+(function () {
+  const now = new Date();
+  document.getElementById('dateline').textContent =
+    `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${DAYS[now.getDay()]}요일 · 제${weekNum(now)}주차`;
+})();
+
+/* ── 1면 ── */
+(function () {
+  const lead = sorted[0];
+  const seen = new Set([lead.cat]);
+  const side = [];
+  for (const p of sorted.slice(1)) {
+    if (!seen.has(p.cat)) { side.push(p); seen.add(p.cat); }
+    if (side.length >= 3) break;
+  }
+  const linkOpen = (p) => mainLink(p) ? `<a href="${mainLink(p)}" target="_blank">` : '<a>';
+  const thumbBox = (p, cls) => {
+    const c = CATS[p.cat];
+    const ph = `<div class="ph" style="background:${c.bg}; color:${c.mid};"><span class="tri">▶</span><span class="nm">${c.name}</span></div>`;
+    if (p.thumb) {
+      const play = cls === 'thumb-big' ? '<div class="play">▶</div>' : '';
+      return `<div class="thumb ${cls}">${ph}<img src="${p.thumb}" alt="${c.name} 표지" style="position:absolute; inset:0;" onerror="this.nextElementSibling && this.nextElementSibling.remove(); this.remove();">${play}</div>`;
+    }
+    return `<div class="thumb ${cls}">${ph}</div>`;
+  };
+  const chans = (p) => {
+    const list = [['인스타그램', p.insta], ['스레드', p.threads], ['블로그', p.blog]].filter(x => x[1]);
+    if (!list.length) return '';
+    return `<div class="chan">${list.map(([n, u]) => `<a href="${u}" target="_blank">${n} ↗</a>`).join('')}</div>`;
+  };
+  document.getElementById('lead').innerHTML = `
+    <div>
+      ${badge(lead.cat, ' · ' + fmt(lead.date))}
+      ${linkOpen(lead)}
+        ${thumbBox(lead, 'thumb-big')}
+        <div class="headline">${lead.title}</div>
+      </a>
+      ${chans(lead)}
+    </div>
+    <div class="side">
+      ${side.map(p => `
+        <div class="item">
+          ${mainLink(p) ? `<a href="${mainLink(p)}" target="_blank">` : '<a>'}
+            ${thumbBox(p, 'thumb-sm')}
+            <div>
+              <div class="cat-line" style="color:${CATS[p.cat].mid};">${CATS[p.cat].name} · ${fmt(p.date)}</div>
+              <div class="t">${p.title}</div>
+            </div>
+          </a>
+        </div>`).join('')}
+    </div>`;
+})();
+
+/* ── 지난 호 ── */
+let filterCat = 'all';
+(function () {
+  const chips = document.getElementById('chips');
+  chips.innerHTML = `<button class="on" data-cat="all">전체</button>` +
+    Object.entries(CATS).map(([k, c]) => `<button data-cat="${k}">${c.name}</button>`).join('');
+  chips.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
+    chips.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+    e.target.classList.add('on');
+    filterCat = e.target.dataset.cat;
+    renderArchive();
+  });
+  document.getElementById('search').addEventListener('input', renderArchive);
+})();
+
+function renderArchive() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const list = sorted.filter(p =>
+    (filterCat === 'all' || p.cat === filterCat) &&
+    (!q || p.title.toLowerCase().includes(q)));
+  const el = document.getElementById('archive-list');
+  if (!list.length) { el.innerHTML = `<div class="empty">해당하는 발행물이 없습니다.</div>`; return; }
+
+  const byMonth = {};
+  list.forEach(p => {
+    const key = p.date.slice(0, 7);
+    (byMonth[key] = byMonth[key] || []).push(p);
+  });
+  el.innerHTML = Object.entries(byMonth).map(([m, posts]) => `
+    <div class="month-label">${m.slice(0, 4)}년 ${parseInt(m.slice(5))}월 · ${posts.length}건</div>
+    <div class="rows">
+      ${posts.map(p => `
+        <a class="row" ${mainLink(p) ? `href="${mainLink(p)}" target="_blank"` : ''}>
+          ${p.thumb ? `<img class="mini" src="${p.thumb}" alt="" onerror="this.remove()">` : ''}
+          ${badge(p.cat)}
+          <span class="title">${p.title}</span>
+          <span class="date">${fmt(p.date)}</span>
+          ${mainLink(p) ? '<span class="arrow">↗</span>' : ''}
+        </a>`).join('')}
+    </div>`).join('');
+}
+renderArchive();
+
+/* ── 발행 캘린더 ── */
+(function () {
+  const byWeek = {};
+  sorted.forEach(p => {
+    const d = new Date(p.date + 'T00:00:00');
+    const mon = new Date(d);
+    mon.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    const key = iso(mon);
+    (byWeek[key] = byWeek[key] || []).push(p);
+  });
+  const weeks = Object.keys(byWeek).sort().reverse();
+  document.getElementById('calendar').innerHTML = weeks.map(wk => {
+    const mon = new Date(wk + 'T00:00:00');
+    const sat = new Date(mon); sat.setDate(mon.getDate() + 5);
+    const posts = byWeek[wk];
+    const cells = [];
+    for (let i = 0; i < 6; i++) {
+      const day = new Date(mon); day.setDate(mon.getDate() + i);
+      const ds = iso(day);
+      const items = posts.filter(p => p.date === ds);
+      cells.push(`
+        <div class="day">
+          <div class="dh">${DAYS[day.getDay()]} ${day.getDate()}</div>
+          ${items.map(p => mainLink(p)
+            ? `<a class="tag" href="${mainLink(p)}" target="_blank" title="${p.title}" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name} ↗</a>`
+            : `<div class="tag" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name}</div>`).join('')}
+        </div>`);
+    }
+    return `
+      <div class="week-block">
+        <div class="week-head">
+          <span class="wk">${mon.getMonth() + 1}월 ${mon.getDate()}일 – ${sat.getMonth() + 1}월 ${sat.getDate()}일 (제${weekNum(mon)}주차)</span>
+          <span class="cnt">발행 ${posts.length}건</span>
+        </div>
+        <div class="grid6">${cells.join('')}</div>
+      </div>`;
+  }).join('');
+})();
+
+/* ── 탭 전환 ── */
+document.querySelector('nav').addEventListener('click', (e) => {
+  if (e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('on'));
+  e.target.classList.add('on');
+  const v = e.target.dataset.view;
+  document.getElementById('view-front').classList.toggle('hidden', v !== 'front');
+  document.getElementById('view-archive').classList.toggle('hidden', v !== 'archive');
+  document.getElementById('calendar').classList.toggle('hidden', v !== 'calendar');
+});
+</script>
+</body>
+</html>
