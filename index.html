@@ -97,6 +97,17 @@
   .schedule .n { font-size: 14px; font-weight: 700; margin-top: 2px; }
   .schedule .m { font-size: 12px; opacity: .85; margin-top: 2px; }
 
+  .staffgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 640px) { .staffgrid { grid-template-columns: 1fr; } }
+  .staffcard { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 12px; display: flex; gap: 10px; align-items: flex-start; }
+  .staffcard img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
+  .sc-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .sc-role { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
+  .sc-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+  .sc-tags span { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; }
+  .staff-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 11px; color: var(--ink-muted); flex-wrap: wrap; gap: 6px; }
+  .staff-foot a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--ink-soft); }
+
   /* ── 지난 호 (아카이브) ── */
   .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 20px 0 14px; }
   .toolbar input {
@@ -179,6 +190,45 @@
           <div class="n">이번 주도 수고했어</div>
           <div class="m">영상 · 곰파파의 한 주 마무리</div>
         </div>
+      </div>
+    </div>
+
+    <div class="weekstrip" style="border-bottom: none;">
+      <h2>H.M Studio 사원들</h2>
+      <div class="staffgrid">
+        <div class="staffcard">
+          <img src="staff/jooyongpa.jpg" alt="주용파님">
+          <div>
+            <div class="sc-name">주용파님</div>
+            <div class="sc-role">앵커 · 편집</div>
+            <div class="sc-tags">
+              <span style="background: var(--pick5-bg); color: var(--pick5-fg);">PICK 5</span>
+              <span style="background: var(--digital-bg); color: var(--digital-fg);">디지털 브리핑</span>
+              <span style="background: var(--daehan-bg); color: var(--daehan-fg);">대한 뉴스</span>
+            </div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="staff/hedi.jpg" alt="헤디님">
+          <div>
+            <div class="sc-name">헤디님</div>
+            <div class="sc-role">우편 감시 · 05:00–24:00</div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="staff/gompapa.jpg" alt="곰파파님">
+          <div>
+            <div class="sc-name">곰파파님</div>
+            <div class="sc-role">주간 에세이</div>
+            <div class="sc-tags">
+              <span style="background: var(--gompapa-bg); color: var(--gompapa-fg);">이번 주도 수고했어</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="staff-foot">
+        <span>총괄 · 클님 — 다음 합류 예정: 수탉, 비버</span>
+        <a href="visit/" target="_blank">사무실 구경하기 ↗</a>
       </div>
     </div>
   </main>
