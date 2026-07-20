@@ -93,8 +93,8 @@
 
   <div class="testbar">
     <b>테스트 페이지입니다.</b> 실제 1면(<code>/</code>)은 그대로예요.
-    이번엔 구글 플레이어를 쓰지 않고 <b>신문 자체 플레이어</b>로 재생합니다.
-    모바일에서 버튼이 화면을 덮지 않아야 정상입니다.
+    구글 드라이브를 버리고 <b>영상을 신문 저장소에 직접</b> 넣었습니다.
+    구글 UI가 전혀 끼어들지 않으니 모바일에서도 깔끔해야 정상입니다.
   </div>
 
   <div class="lead">
@@ -106,14 +106,10 @@
         playsinline
         preload="metadata"
         poster="thumbs/2026-07-20_pick5.png">
-        <source src="https://drive.usercontent.google.com/download?id=1iV3Z89qc2g8b0kjztkh3Q-cWv8MLlX8B&export=download" type="video/mp4">
+        <source src="videos/pick5_2026-07-20.mp4" type="video/mp4">
       </video>
     </div>
     <div class="status" id="status">재생 상태 확인 중…</div>
-    <div class="fallback">
-      재생이 안 되면 →
-      <a href="https://drive.google.com/file/d/1iV3Z89qc2g8b0kjztkh3Q-cWv8MLlX8B/view" target="_blank">드라이브에서 보기 ↗</a>
-    </div>
 
     <h2>화웨이 AI칩 8192장 · 한은 금리 인상 · 유가 10% 폭등</h2>
     <div class="btns">
@@ -128,7 +124,7 @@
     <p>1. <b>휴대폰에서</b> 열어보세요. 재생 버튼이 화면을 덮지 않고, 표지 이미지 위에
        작은 재생 버튼만 보이면 성공입니다.</p>
     <p>2. 눌렀을 때 영상이 정상 재생되는지 확인해 주세요.</p>
-    <p>3. 위 초록색 상태 표시줄에 오류가 뜨면 그 문구를 알려주세요.</p>
+    <p>3. 위 상태 표시줄이 초록색이면 성공, 빨간색이면 그 문구를 알려주세요.</p>
   </div>
 
 </div>
@@ -137,18 +133,18 @@
   var v = document.getElementById('v');
   var s = document.getElementById('status');
   v.addEventListener('loadeddata', function () {
-    s.textContent = '✓ 영상 불러오기 성공 — 자체 플레이어로 재생됩니다.';
+    s.textContent = '✓ 영상 불러오기 성공 — 신문 자체 플레이어로 재생됩니다.';
   });
   v.addEventListener('error', function () {
     s.style.background = '#fdeceb';
     s.style.color = '#8a2b20';
-    s.textContent = '✕ 영상을 불러오지 못했습니다. 구글이 직접 재생을 막고 있는 경우입니다.';
+    s.textContent = '✕ 영상을 불러오지 못했습니다.';
   });
   setTimeout(function () {
     if (v.readyState === 0) {
       s.style.background = '#fdeceb';
       s.style.color = '#8a2b20';
-      s.textContent = '✕ 응답 없음 — 구글이 직접 재생을 막고 있을 가능성이 큽니다.';
+      s.textContent = '✕ 응답 없음 — 영상을 불러오지 못했습니다.';
     }
   }, 8000);
 </script>
