@@ -400,6 +400,14 @@ const sorted = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
 function mainLink(p) {
   return p.insta || p.threads || p.blog || '';
 }
+/* 클릭 대상: 영상이 있으면 모달 재생, 없으면 외부 링크. <a> 안에 들어갈 속성 문자열 반환 */
+function openAttr(p) {
+  if (p.video) {
+    return `href="#" class="js-vplay" data-video="${p.video}" data-insta="${p.insta||''}" data-threads="${p.threads||''}" data-blog="${p.blog||''}"`;
+  }
+  if (mainLink(p)) return `href="${mainLink(p)}" target="_blank"`;
+  return '';
+}
 function fmt(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return `${d.getMonth() + 1}/${d.getDate()} ${DAYS[d.getDay()]}`;
@@ -432,12 +440,7 @@ function weekNum(d) {
     if (!seen.has(p.cat)) { side.push(p); seen.add(p.cat); }
     if (side.length >= 3) break;
   }
-  const vlinks = (p) => JSON.stringify({insta:p.insta||'',threads:p.threads||'',blog:p.blog||''});
-  const linkOpen = (p) => {
-    if (p.video) return `<a href="#" onclick="openVmod('${p.video}',${vlinks(p)}); return false;">`;
-    if (mainLink(p)) return `<a href="${mainLink(p)}" target="_blank">`;
-    return '<a>';
-  };
+  const linkOpen = (p) => `<a ${openAttr(p)}>`;
   const thumbBox = (p, cls) => {
     const c = CATS[p.cat];
     const ph = `<div class="ph" style="background:${c.bg}; color:${c.mid};"><span class="tri">▶</span><span class="nm">${c.name}</span></div>`;
@@ -508,12 +511,12 @@ function renderArchive() {
     <div class="month-label">${m.slice(0, 4)}년 ${parseInt(m.slice(5))}월 · ${posts.length}건</div>
     <div class="rows">
       ${posts.map(p => `
-        <a class="row" ${mainLink(p) ? `href="${mainLink(p)}" target="_blank"` : ''}>
+        <a class="row" ${openAttr(p)}>
           ${p.thumb ? `<img class="mini" src="${p.thumb}" alt="" onerror="this.remove()">` : ''}
           ${badge(p.cat)}
           <span class="title">${p.title}</span>
           <span class="date">${fmt(p.date)}</span>
-          ${mainLink(p) ? '<span class="arrow">↗</span>' : ''}
+          ${(p.video || mainLink(p)) ? `<span class="arrow">${p.video ? '▶' : '↗'}</span>` : ''}
         </a>`).join('')}
     </div>`).join('');
 }
@@ -542,8 +545,8 @@ renderArchive();
       cells.push(`
         <div class="day">
           <div class="dh">${DAYS[day.getDay()]} ${day.getDate()}</div>
-          ${items.map(p => mainLink(p)
-            ? `<a class="tag" href="${mainLink(p)}" target="_blank" title="${p.title}" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name} ↗</a>`
+          ${items.map(p => (p.video || mainLink(p))
+            ? `<a class="tag" ${openAttr(p)} title="${p.title}" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name} ${p.video ? '▶' : '↗'}</a>`
             : `<div class="tag" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name}</div>`).join('')}
         </div>`);
     }
@@ -590,6 +593,13 @@ document.getElementById('vmod').addEventListener('click', (e) => {
   if (e.target === document.getElementById('vmod')) closeVmod();
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVmod(); });
+/* 영상 썸네일/행 클릭 → 모달 재생 (위임) */
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('.js-vplay');
+  if (!a) return;
+  e.preventDefault();
+  openVmod(a.dataset.video, { insta: a.dataset.insta, threads: a.dataset.threads, blog: a.dataset.blog });
+});
 </script>
 
 <!-- 영상 모달 -->
