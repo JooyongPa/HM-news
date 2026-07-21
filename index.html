@@ -198,7 +198,7 @@
         <div class="cell" style="background: var(--gompapa-bg); color: var(--gompapa-fg);">
           <div class="d" style="color: var(--gompapa-mid);">토</div>
           <div class="n">이번 주도 수고했어</div>
-          <div class="m">영상 · 곰파파의 한 주 마무리</div>
+          <div class="m">영상 · 한 주를 돌아보는 시간</div>
         </div>
       </div>
     </div>
@@ -229,7 +229,7 @@
           <img src="staff/gompapa.jpg" alt="곰파파님">
           <div>
             <div class="sc-name">곰파파님</div>
-            <div class="sc-role">주간 에세이</div>
+            <div class="sc-role">주말 에세이스트</div>
             <div class="sc-tags">
               <span style="background: var(--gompapa-bg); color: var(--gompapa-fg);">이번 주도 수고했어</span>
             </div>
@@ -460,11 +460,6 @@ function weekNum(d) {
     }
     return `<div class="thumb ${cls}">${ph}</div>`;
   };
-  const chans = (p) => {
-    const list = [['인스타그램', p.insta], ['스레드', p.threads], ['블로그', p.blog]].filter(x => x[1]);
-    if (!list.length) return '';
-    return `<div class="chan">${list.map(([n, u]) => `<a href="${u}" target="_blank">${n} ↗</a>`).join('')}</div>`;
-  };
   document.getElementById('lead').innerHTML = `
     <div>
       ${badge(lead.cat, ' · ' + fmt(lead.date))}
@@ -472,7 +467,6 @@ function weekNum(d) {
         ${thumbBox(lead, 'thumb-big')}
         <div class="headline">${lead.title}</div>
       </a>
-      ${chans(lead)}
     </div>
     <div class="side">
       ${side.map(p => `
