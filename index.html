@@ -263,6 +263,15 @@
   </footer>
 </div>
 
+<!-- 영상 모달 -->
+<div id="vmod">
+  <div id="vmod-inner">
+    <button id="vmod-close" onclick="closeVmod()">✕</button>
+    <video id="vmod-v" controls playsinline preload="metadata"></video>
+    <div id="vmod-links"></div>
+  </div>
+</div>
+
 <script>
 /* ══════════════════════════════════════════════════════════════
    ★ 발행물 추가하는 곳 ★
@@ -601,14 +610,5 @@ document.addEventListener('click', (e) => {
   openVmod(a.dataset.video, { insta: a.dataset.insta, threads: a.dataset.threads, blog: a.dataset.blog });
 });
 </script>
-
-<!-- 영상 모달 -->
-<div id="vmod">
-  <div id="vmod-inner">
-    <button id="vmod-close" onclick="closeVmod()">✕</button>
-    <video id="vmod-v" controls playsinline preload="metadata"></video>
-    <div id="vmod-links"></div>
-  </div>
-</div>
 </body>
 </html>
