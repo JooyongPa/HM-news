@@ -403,7 +403,7 @@ function mainLink(p) {
 /* 클릭 대상: 영상이 있으면 모달 재생, 없으면 외부 링크. <a> 안에 들어갈 속성 문자열 반환 */
 function openAttr(p) {
   if (p.video) {
-    return `href="#" class="js-vplay" data-video="${p.video}" data-insta="${p.insta||''}" data-threads="${p.threads||''}" data-blog="${p.blog||''}"`;
+    return `href="#" data-video="${p.video}" data-insta="${p.insta||''}" data-threads="${p.threads||''}" data-blog="${p.blog||''}"`;
   }
   if (mainLink(p)) return `href="${mainLink(p)}" target="_blank"`;
   return '';
@@ -595,7 +595,7 @@ document.getElementById('vmod').addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVmod(); });
 /* 영상 썸네일/행 클릭 → 모달 재생 (위임) */
 document.addEventListener('click', (e) => {
-  const a = e.target.closest('.js-vplay');
+  const a = e.target.closest('[data-video]');
   if (!a) return;
   e.preventDefault();
   openVmod(a.dataset.video, { insta: a.dataset.insta, threads: a.dataset.threads, blog: a.dataset.blog });
