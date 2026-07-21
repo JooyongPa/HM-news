@@ -79,6 +79,16 @@
   .thumb-sm { width: 78px; aspect-ratio: 1 / 1; flex: none; }
   .thumb-sm .ph .tri { font-size: 18px; }
   .thumb-sm .ph .nm { display: none; }
+
+  /* ── 영상 모달 ── */
+  #vmod { display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:999; align-items:center; justify-content:center; padding:20px; }
+  #vmod.open { display:flex; }
+  #vmod-inner { max-width:560px; width:100%; position:relative; }
+  #vmod video { width:100%; border-radius:10px; display:block; }
+  #vmod-links { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  #vmod-links a { font-size:12px; padding:6px 14px; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:rgba(255,255,255,.8); text-decoration:none; }
+  #vmod-links a:hover { background:rgba(255,255,255,.1); }
+  #vmod-close { position:absolute; top:-40px; right:0; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; line-height:1; }
   .row img.mini { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex: none; }
   .chan { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
   .chan a { font-size: 12px; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: 5px 14px; text-decoration: none; background: #fff; }
@@ -273,7 +283,8 @@ const POSTS = [
     insta: 'https://www.instagram.com/reel/Da_UbkLhuGT/',
     threads: 'https://www.threads.com/@jooyongpa/post/Da_UTSjk1ER',
     blog: 'https://blog.naver.com/act2lab/224351608892',
-    thumb: 'thumbs/2026-07-20_pick5.png' },
+    thumb: 'thumbs/2026-07-20_pick5.png',
+    video: 'videos/pick5_2026-07-20.mp4' },
   { date: '2026-07-18', cat: 'gompapa', title: '금리 3년 반 만에 인상 · 출렁인 증시 · \'모두의 AI\'가 온다 — 이번 주 담긴 것들',
     insta: 'https://www.instagram.com/reel/Da6YuIQNmEt/',
     threads: 'https://www.threads.com/@jooyongpa/post/Da6YxG9EzSw',
@@ -421,7 +432,12 @@ function weekNum(d) {
     if (!seen.has(p.cat)) { side.push(p); seen.add(p.cat); }
     if (side.length >= 3) break;
   }
-  const linkOpen = (p) => mainLink(p) ? `<a href="${mainLink(p)}" target="_blank">` : '<a>';
+  const vlinks = (p) => JSON.stringify({insta:p.insta||'',threads:p.threads||'',blog:p.blog||''});
+  const linkOpen = (p) => {
+    if (p.video) return `<a href="#" onclick="openVmod('${p.video}',${vlinks(p)}); return false;">`;
+    if (mainLink(p)) return `<a href="${mainLink(p)}" target="_blank">`;
+    return '<a>';
+  };
   const thumbBox = (p, cls) => {
     const c = CATS[p.cat];
     const ph = `<div class="ph" style="background:${c.bg}; color:${c.mid};"><span class="tri">▶</span><span class="nm">${c.name}</span></div>`;
@@ -448,7 +464,7 @@ function weekNum(d) {
     <div class="side">
       ${side.map(p => `
         <div class="item">
-          ${mainLink(p) ? `<a href="${mainLink(p)}" target="_blank">` : '<a>'}
+          ${linkOpen(p)}
             ${thumbBox(p, 'thumb-sm')}
             <div>
               <div class="cat-line" style="color:${CATS[p.cat].mid};">${CATS[p.cat].name} · ${fmt(p.date)}</div>
@@ -552,6 +568,37 @@ document.querySelector('nav').addEventListener('click', (e) => {
   document.getElementById('view-archive').classList.toggle('hidden', v !== 'archive');
   document.getElementById('calendar').classList.toggle('hidden', v !== 'calendar');
 });
+
+/* ── 영상 모달 ── */
+function openVmod(src, links) {
+  const el = document.getElementById('vmod');
+  document.getElementById('vmod-v').src = src;
+  const linksEl = document.getElementById('vmod-links');
+  linksEl.innerHTML = [['인스타그램', links.insta], ['스레드', links.threads], ['블로그', links.blog]]
+    .filter(([, u]) => u)
+    .map(([n, u]) => `<a href="${u}" target="_blank">${n} ↗</a>`)
+    .join('');
+  el.classList.add('open');
+  document.getElementById('vmod-v').play();
+}
+function closeVmod() {
+  const v = document.getElementById('vmod-v');
+  v.pause(); v.src = '';
+  document.getElementById('vmod').classList.remove('open');
+}
+document.getElementById('vmod').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('vmod')) closeVmod();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVmod(); });
 </script>
+
+<!-- 영상 모달 -->
+<div id="vmod">
+  <div id="vmod-inner">
+    <button id="vmod-close" onclick="closeVmod()">✕</button>
+    <video id="vmod-v" controls playsinline preload="metadata"></video>
+    <div id="vmod-links"></div>
+  </div>
+</div>
 </body>
 </html>
