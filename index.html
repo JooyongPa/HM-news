@@ -523,7 +523,7 @@ function weekNum(d) {
     const c = CATS[p.cat];
     const ph = `<div class="ph" style="background:${c.bg}; color:${c.mid};"><span class="tri">▶</span><span class="nm">${c.name}</span></div>`;
     if (p.thumb) {
-      const play = cls === 'thumb-big' ? '<div class="play">▶</div>' : '';
+      const play = (cls === 'thumb-big' && (p.video || mainLink(p))) ? '<div class="play">▶</div>' : '';
       return `<div class="thumb ${cls}">${ph}<img src="${p.thumb}" alt="${c.name} 표지" style="position:absolute; inset:0;" onerror="this.nextElementSibling && this.nextElementSibling.remove(); this.remove();">${play}</div>`;
     }
     return `<div class="thumb ${cls}">${ph}</div>`;
