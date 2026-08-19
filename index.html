@@ -53,6 +53,11 @@
   nav button:hover { background: #f0ede4; }
   nav button.on { background: var(--ink); color: var(--paper); font-weight: 500; }
 
+  /* ── 공지 배너 ── */
+  .notice-bar { margin: 18px 0 0; background: #FBF3E7; border: 1px solid #E7D6B8; border-left: 4px solid #C89B3C; border-radius: 8px; padding: 13px 18px; }
+  .notice-bar .t { font-size: 13.5px; color: #6B5628; line-height: 1.6; }
+  .notice-bar .t b { color: #4A3C1A; }
+
   /* ── 1면 ── */
   .lead { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
   @media (max-width: 640px) { .lead { grid-template-columns: 1fr; } .side { border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--rule); padding-top: 16px; } }
@@ -172,6 +177,9 @@
     <button data-view="archive">ARCHIVE</button>
     <button data-view="calendar">CALENDAR</button>
   </nav>
+
+  <!-- 공지 배너 (NOTICE 변수로 켜고 끔) -->
+  <div id="notice"></div>
 
   <!-- ═══════════ 1면 ═══════════ -->
   <main id="view-front">
@@ -635,6 +643,16 @@ function weekNum(d) {
   const now = new Date();
   document.getElementById('dateline').textContent =
     `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${DAYS[now.getDay()]}요일 · 제${weekNum(now)}주차`;
+})();
+
+/* ── 공지 배너 (NOTICE 비우면 자동으로 안 보임. 공지 끝나면 빈 문자열로) ── */
+const NOTICE = '📢 <b>안내</b> — 오늘 <b>「주용파의 대한 뉴스」</b>는 주용파님이 현장 취재를 떠나 하루 쉬어갑니다. 더 생생한 소식으로 곧 돌아오겠습니다.';
+(function () {
+  const el = document.getElementById('notice');
+  if (NOTICE && NOTICE.trim()) {
+    el.className = 'notice-bar';
+    el.innerHTML = `<div class="t">${NOTICE}</div>`;
+  }
 })();
 
 /* ── 1면 ── */
