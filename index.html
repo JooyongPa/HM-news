@@ -7,8 +7,8 @@
 <meta name="description" content="주용파가 매일 전하는 뉴스 — PICK 5, 디지털 브리핑, 대한 뉴스, 이번 주도 수고했어를 한곳에서.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="주용파의 오늘도 수고했어">
-<meta property="og:description" content="PICK 5 — SK하이닉스 40조 · 왕이 방한 · 캐나다 관세 발효">
-<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-08-21_pick5.png">
+<meta property="og:description" content="이번 주도 수고했어 — 거제·통영 특별재난지역 · 태풍 사우델 북상 · 반도체주 롤러코스터">
+<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-08-22_gompapa.jpg">
 <meta property="og:url" content="https://hm-news.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -305,8 +305,15 @@
             카테고리 색상의 대체 표지가 자동으로 표시됩니다.
    ══════════════════════════════════════════════════════════════ */
 const POSTS = [
+  { date: '2026-08-22', cat: 'gompapa', title: '거제·통영 특별재난지역 · 태풍 사우델 북상 · 반도체주 롤러코스터 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DcUau1WNGQd/',
+    threads: 'https://www.threads.com/share/IVLH7Iv6v/',
+    blog: 'https://blog.naver.com/act2lab/224386318600',
+    thumb: 'thumbs/2026-08-22_gompapa.jpg' },
   { date: '2026-08-21', cat: 'pick5', title: 'SK하이닉스 40조 · 왕이 방한 · 캐나다 관세 발효',
-    insta: '', threads: '', blog: '',
+    insta: 'https://www.instagram.com/reel/DcTerZgNw7D/',
+    threads: 'https://www.threads.com/share/IBkjLe8Mb/',
+    blog: 'https://blog.naver.com/act2lab/224386098656',
     thumb: 'thumbs/2026-08-21_pick5.png',
     video: 'videos/pick5_2026-08-21.mp4' },
   { date: '2026-08-20', cat: 'pick5', title: '코스피 급락·사이드카 · SK하이닉스 40조 · 왕이 방한',
@@ -658,7 +665,7 @@ function weekNum(d) {
 })();
 
 /* ── 공지 배너 (NOTICE 비우면 자동으로 안 보임. 공지 끝나면 빈 문자열로) ── */
-const NOTICE = '📢 <b>안내</b> — 오늘 <b>「주용파의 대한 뉴스」</b>는 주용파님이 현장 취재를 떠나 하루 쉬어갑니다. 더 생생한 소식으로 곧 돌아오겠습니다.';
+const NOTICE = '';
 (function () {
   const el = document.getElementById('notice');
   if (NOTICE && NOTICE.trim()) {
