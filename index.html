@@ -7,8 +7,8 @@
 <meta name="description" content="주용파가 매일 전하는 뉴스 — PICK 5, 디지털 브리핑, 대한 뉴스, 이번 주도 수고했어를 한곳에서.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="주용파의 오늘도 수고했어">
-<meta property="og:description" content="PICK 5 — 美 PPI 5.4% 충격 · iPhone 18 Pro 2nm · DeepSeek IPO 공식화">
-<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-09-11_pick5.png">
+<meta property="og:description" content="이번 주도 수고했어 — 가을 이사철 전셋집 걱정 · 청년 AI 이용권 예산 논란 · 정보유출 최대 10% 과징금">
+<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-09-12_gompapa.jpg">
 <meta property="og:url" content="https://hm-news.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -305,6 +305,11 @@
             카테고리 색상의 대체 표지가 자동으로 표시됩니다.
    ══════════════════════════════════════════════════════════════ */
 const POSTS = [
+  { date: '2026-09-12', cat: 'gompapa', title: '가을 이사철 전셋집 걱정 · 청년 AI 이용권 예산 논란 · 정보유출 최대 10% 과징금 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DdK98FUNhGx/',
+    threads: 'https://www.threads.com/share/FS5ixK8Dn/',
+    blog: 'https://blog.naver.com/act2lab/224409221310',
+    thumb: 'thumbs/2026-09-12_gompapa.jpg' },
   { date: '2026-09-11', cat: 'pick5', title: '美 PPI 5.4% 충격 · iPhone 18 Pro 2nm · DeepSeek IPO 공식화',
     insta: 'https://www.instagram.com/reel/DdH0BU-tvLp/',
     threads: 'https://www.threads.com/share/Fq7OOglBU/',
@@ -795,7 +800,7 @@ function weekNum(d) {
 })();
 
 /* ── 공지 배너 (NOTICE 비우면 자동으로 안 보임. 공지 끝나면 빈 문자열로) ── */
-const NOTICE = '📢 <b>안내</b> — <b>「H.M NEWS」</b>가 <b>가을 개편</b>을 준비하고 있습니다. 독자님께 더 편안하게 가닿도록 지면과 아침 편지를 다듬는 중이에요. 바라시는 점이나 아이디어가 있으시면 <b>뉴스레터 답장</b> 또는 <a href="https://open.kakao.com/o/p7sGTDvi" target="_blank" rel="noopener" style="color:#4A3C1A;text-decoration:underline;font-weight:700;">카카오톡 오픈채팅</a>으로 편히 들려주세요. 여러분의 한마디가 다음 페이지를 만듭니다. 💬';
+const NOTICE = '';
 (function () {
   const el = document.getElementById('notice');
   if (NOTICE && NOTICE.trim()) {
