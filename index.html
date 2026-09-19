@@ -7,8 +7,8 @@
 <meta name="description" content="주용파가 매일 전하는 뉴스 — PICK 5, 디지털 브리핑, 대한 뉴스, 이번 주도 수고했어를 한곳에서.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="주용파의 오늘도 수고했어">
-<meta property="og:description" content="PICK 5 — 연준 긴축 · OpenAI 이탈정렬 · 화웨이·구글 AI 공세">
-<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-09-18_pick5.png">
+<meta property="og:description" content="이번 주도 수고했어 — 청년 취업 46개월째 겨울 · 오픈AI 삼성을 찾다 · 추석 앞 무거운 장바구니">
+<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-09-19_gompapa.jpg">
 <meta property="og:url" content="https://hm-news.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -305,8 +305,15 @@
             카테고리 색상의 대체 표지가 자동으로 표시됩니다.
    ══════════════════════════════════════════════════════════════ */
 const POSTS = [
+  { date: '2026-09-19', cat: 'gompapa', title: '청년 취업 46개월째 겨울 · 오픈AI 삼성을 찾다 · 추석 앞 무거운 장바구니 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DddRNOQNnqU/',
+    threads: 'https://www.threads.com/share/KTO6_X99k/',
+    blog: 'https://blog.naver.com/act2lab/224416974712',
+    thumb: 'thumbs/2026-09-19_gompapa.jpg' },
   { date: '2026-09-18', cat: 'pick5', title: '연준 긴축 · OpenAI 이탈정렬 · 화웨이·구글 AI 공세',
-    insta: '', threads: '', blog: '',
+    insta: 'https://www.instagram.com/reel/DdcfEj8tDO6/',
+    threads: 'https://www.threads.com/share/E7ABjGPjQ/',
+    blog: 'https://blog.naver.com/act2lab/224416704361',
     thumb: 'thumbs/2026-09-18_pick5.png',
     video: 'videos/pick5_2026-09-18.mp4' },
   { date: '2026-09-17', cat: 'daehan', title: '美 연준 금리 인상 · 반도체 수출 역대 최대 · 北 한미에 핵위협 경고',
@@ -834,7 +841,7 @@ function weekNum(d) {
 })();
 
 /* ── 공지 배너 (NOTICE 비우면 자동으로 안 보임. 공지 끝나면 빈 문자열로) ── */
-const NOTICE = '📄 <b>안내</b> — 오늘 <b>「대한 뉴스」</b>는 카드·영상 대신 <b>지면형 텍스트 뉴스</b>로 전해드립니다. 마침 준비 중인 <b>가을 개편</b>에서 선보일 형식이라, 살짝 미리 만나보시는 자리이기도 합니다. 담긴 소식과 확인 절차는 평소와 동일합니다.';
+const NOTICE = '';
 (function () {
   const el = document.getElementById('notice');
   if (NOTICE && NOTICE.trim()) {
