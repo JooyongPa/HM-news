@@ -984,9 +984,9 @@ function weekNum(d) {
 /* ── 공지 배너 ──
    NOTICE 비우면 안 보임. NOTICE_FROM~NOTICE_UNTIL(YYYY-MM-DD, 포함) 사이에만 표시되고
    기간이 지나면 세션 없이도 자동으로 사라짐. 상시 공지는 두 날짜를 '' 로 두면 됨. */
-const NOTICE = '🌕 <b>추석 연휴 안내</b> — 09/22~09/26 <b>동영상 뉴스</b>(디지털 브리핑·대한 뉴스·이번 주도 수고했어)는 명절을 맞아 쉬어갑니다. 대신 <b>추석 인사</b>로 찾아뵙고, <b>PICK 5</b>는 평소처럼 매일 아침 이어집니다. 풍요로운 한가위 보내세요.';
-const NOTICE_FROM  = '2026-09-22';
-const NOTICE_UNTIL = '2026-09-26';
+const NOTICE = '📰 <b>가을 개편 안내</b> — <b>10월 26일(월)</b>부터 「주용파의 오늘도 수고했어」가 <b>월~토 아침 7시 일간 신문</b>으로 새로 찾아갑니다. 매일 아침 1면과 주용파의 한마디, 「주용파의 1분 브리핑」 영상을 전하고, 토요일엔 곰파파의 주말 편지가 담긴 <b>주말판</b>이 나옵니다. PICK 5·디지털 브리핑·대한뉴스는 이번 주가 마지막이며, 지난 호는 새 신문의 ‘지난 신문’에서 그대로 보실 수 있어요.';
+const NOTICE_FROM  = '2026-10-20';
+const NOTICE_UNTIL = '2026-10-24';
 (function () {
   const el = document.getElementById('notice');
   const t = iso(new Date());
