@@ -1169,6 +1169,19 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   openVmod(a.dataset.video, { insta: a.dataset.insta, threads: a.dataset.threads, blog: a.dataset.blog });
 });
+/* ── 날짜로 바로 열기 (2026-10-20 기획실) — 새 신문 '지난 신문'에서 ?post=YYYY-MM-DD_cat 로 연결 ──
+   영상 있는 호는 영상 창, 없으면 그 호의 SNS/블로그 링크, 그것도 없으면 표지 이미지로 */
+(function () {
+  const q = new URLSearchParams(location.search).get('post');
+  if (!q) return;
+  const [d, c] = q.split('_');
+  const p = POSTS.find(x => x.date === d && (!c || x.cat === c));
+  if (!p) return;
+  if (p.video) { openVmod(p.video, { insta: p.insta, threads: p.threads, blog: p.blog }); return; }
+  const link = mainLink(p);
+  if (link) { location.replace(link); return; }
+  if (p.thumb) location.replace(p.thumb);
+})();
 </script>
 </body>
 </html>
