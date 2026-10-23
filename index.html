@@ -57,6 +57,11 @@
   .notice-bar { margin: 18px 0 0; background: #FBF3E7; border: 1px solid #E7D6B8; border-left: 4px solid #C89B3C; border-radius: 8px; padding: 13px 18px; }
   .notice-bar .t { font-size: 13.5px; color: #6B5628; line-height: 1.6; }
   .notice-bar .t b { color: #4A3C1A; }
+  /* 고별 밴드 (현행 신문 마지막 발행 · NOTICE와 별개) */
+  .farewell-bar { margin: 20px 0 0; text-align: center; border-top: 3px double var(--rule-strong); border-bottom: 3px double var(--rule-strong); padding: 16px 20px; }
+  .farewell-bar .fh { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; letter-spacing: 1px; color: var(--ink); }
+  .farewell-bar .ft { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-top: 9px; }
+  .farewell-bar .ft b { color: var(--ink); }
 
   /* ── 1면 ── */
   .lead { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
@@ -180,6 +185,9 @@
 
   <!-- 공지 배너 (NOTICE 변수로 켜고 끔) -->
   <div id="notice"></div>
+
+  <!-- 고별 밴드 (현행 신문 마지막 발행 안내 · NOTICE와 독립, FAREWELL 변수로 제어) -->
+  <div id="farewell"></div>
 
   <!-- ═══════════ 1면 ═══════════ -->
   <main id="view-front">
@@ -1019,6 +1027,23 @@ const NOTICE_UNTIL = '2026-10-24';
   if (NOTICE && NOTICE.trim() && inRange) {
     el.className = 'notice-bar';
     el.innerHTML = `<div class="t">${NOTICE}</div>`;
+  }
+})();
+
+/* ── 고별 밴드 (현행 신문 마지막 발행 · NOTICE와 완전 별개, 토요일 하루만) ── */
+const FAREWELL      = '📮 현행 신문, 오늘이 마지막 발행입니다';
+const FAREWELL_BODY = 'PICK 5와 디지털브리핑·대한뉴스, 그리고 토요일 곰파파까지 — 지금의 「오늘도 수고했어」가 오늘 호를 끝으로 그간의 여정을 마칩니다. 그동안 아침마다 함께 읽어 주셔서 진심으로 고맙습니다. 10월 26일(월)부터 새 아침 신문으로 다시 찾아뵙겠습니다. <b>— 제작국 드림</b>';
+const FAREWELL_FROM  = '2026-10-24';
+const FAREWELL_UNTIL = '2026-10-24';
+
+(function () {
+  const el = document.getElementById('farewell');
+  if (!el) return;
+  const t = iso(new Date());
+  const inRange = (!FAREWELL_FROM || t >= FAREWELL_FROM) && (!FAREWELL_UNTIL || t <= FAREWELL_UNTIL);
+  if (FAREWELL && FAREWELL.trim() && inRange) {
+    el.className = 'farewell-bar';
+    el.innerHTML = `<div class="fh">${FAREWELL}</div><div class="ft">${FAREWELL_BODY}</div>`;
   }
 })();
 
