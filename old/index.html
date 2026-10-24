@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주용파의 오늘도 수고했어</title>
+<meta name="description" content="주용파가 매일 전하는 뉴스 — PICK 5, 디지털 브리핑, 대한 뉴스, 이번 주도 수고했어를 한곳에서.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="주용파의 오늘도 수고했어">
+<meta property="og:description" content="[이번 주도 수고했어] 레버리지 손실 6.3조 · 기준금리 3.00% 동결 · 이재명 대통령의 운동회 — 2026.10.19~10.24 곰파파 주간 에세이">
+<meta property="og:image" content="https://hm-news.vercel.app/thumbs/2026-10-24_gompapa.jpg">
+<meta property="og:url" content="https://hm-news.vercel.app/old/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #faf8f3;
+    --ink: #1c1b18;
+    --ink-soft: #5c5a52;
+    --ink-muted: #8f8a80;
+    --rule: #d8d3c8;
+    --rule-strong: #1c1b18;
+    --pick5-bg: #e1f5ee; --pick5-fg: #085041; --pick5-mid: #0f6e56;
+    --digital-bg: #eeedfe; --digital-fg: #3c3489; --digital-mid: #534ab7;
+    --daehan-bg: #faece7; --daehan-fg: #712b13; --daehan-mid: #993c1d;
+    --gompapa-bg: #fbeaf0; --gompapa-fg: #72243e; --gompapa-mid: #993556;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* ── 제호 ── */
+  .masthead { text-align: center; border-bottom: 3px double var(--rule-strong); padding-bottom: 18px; }
+  .masthead .studio { font-size: 11px; letter-spacing: 3px; color: var(--ink-muted); }
+  .masthead .of { font-family: 'Noto Serif KR', serif; font-size: 15px; color: var(--ink-soft); margin-top: 10px; }
+  .masthead h1 { font-family: 'Noto Serif KR', serif; font-size: 42px; font-weight: 700; letter-spacing: 2px; line-height: 1.3; }
+  .masthead .dateline { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+  .masthead .slogan { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
+
+  /* ── 섹션 탭 ── */
+  nav { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  nav button {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif; font-size: 14px; color: var(--ink-soft);
+    padding: 6px 14px; border-radius: 999px;
+  }
+  nav button:hover { background: #f0ede4; }
+  nav button.on { background: var(--ink); color: var(--paper); font-weight: 500; }
+
+  /* ── 공지 배너 ── */
+  .notice-bar { margin: 18px 0 0; background: #FBF3E7; border: 1px solid #E7D6B8; border-left: 4px solid #C89B3C; border-radius: 8px; padding: 13px 18px; }
+  .notice-bar .t { font-size: 13.5px; color: #6B5628; line-height: 1.6; }
+  .notice-bar .t b { color: #4A3C1A; }
+
+  /* ── 1면 ── */
+  .lead { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  @media (max-width: 640px) { .lead { grid-template-columns: 1fr; } .side { border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--rule); padding-top: 16px; } }
+  .lead .headline { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 600; line-height: 1.45; margin: 12px 0 10px; }
+  .lead .deck { font-size: 14px; color: var(--ink-soft); }
+  .lead a { color: inherit; text-decoration: none; }
+  .lead a:hover .headline { text-decoration: underline; text-underline-offset: 4px; }
+  .side { border-left: 1px solid var(--rule); padding-left: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .side .item { border-top: 1px solid var(--rule); padding-top: 14px; }
+  .side .item:first-child { border-top: none; padding-top: 0; }
+  .side .item a { color: inherit; text-decoration: none; display: flex; gap: 10px; align-items: center; }
+  .side .item a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+  .side .cat-line { font-size: 12px; font-weight: 700; }
+  .side .t { font-size: 14px; margin-top: 2px; font-family: 'Noto Serif KR', serif; line-height: 1.5; }
+
+  /* ── 썸네일 ── */
+  .thumb { position: relative; border-radius: 10px; overflow: hidden; background: #eee9de; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb .ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .thumb .ph .tri { font-size: 26px; line-height: 1; }
+  .thumb .ph .nm { font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+  .thumb-big { aspect-ratio: 1 / 1; margin-top: 12px; }
+  .thumb-big .play { position: absolute; inset: 0; margin: auto; width: 46px; height: 46px; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; padding-left: 4px; }
+  .thumb-sm { width: 78px; aspect-ratio: 1 / 1; flex: none; }
+  .thumb-sm .ph .tri { font-size: 18px; }
+  .thumb-sm .ph .nm { display: none; }
+
+  /* ── 영상 모달 ── */
+  #vmod { display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:999; align-items:center; justify-content:center; padding:20px; }
+  #vmod.open { display:flex; }
+  #vmod-inner { max-width:560px; width:100%; position:relative; }
+  #vmod video { width:100%; border-radius:10px; display:block; }
+  #vmod-links { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  #vmod-links a { font-size:12px; padding:6px 14px; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:rgba(255,255,255,.8); text-decoration:none; }
+  #vmod-links a:hover { background:rgba(255,255,255,.1); }
+  #vmod-close { position:absolute; top:-40px; right:0; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; line-height:1; }
+  .row img.mini { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; flex: none; }
+  .chan { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .chan a { font-size: 12px; color: var(--ink-soft); border: 1px solid var(--rule); border-radius: 999px; padding: 5px 14px; text-decoration: none; background: #fff; }
+  .chan a:hover { border-color: var(--ink-soft); }
+  .kakao-btn { display: inline-block; margin-bottom: 14px; background: #fee500; color: #191919; font-size: 13px; font-weight: 700; padding: 9px 22px; border-radius: 999px; text-decoration: none; }
+
+  .badge { display: inline-block; font-size: 12px; padding: 3px 12px; border-radius: 999px; font-weight: 500; }
+
+  /* ── 주간 발행 스트립 ── */
+  .weekstrip { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .weekstrip h2, .section-title { font-size: 13px; letter-spacing: 1px; color: var(--ink-muted); font-weight: 700; margin-bottom: 12px; }
+  .schedule { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  @media (max-width: 640px) { .schedule { grid-template-columns: repeat(2, 1fr); } }
+  .schedule .cell { border-radius: 10px; padding: 12px 14px; }
+  .schedule .d { font-size: 12px; }
+  .schedule .n { font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .schedule .m { font-size: 12px; opacity: .85; margin-top: 2px; }
+
+  .staffgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 640px) { .staffgrid { grid-template-columns: 1fr; } }
+  .staffcard { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 12px; display: flex; gap: 10px; align-items: flex-start; }
+  .staffcard img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
+  .sc-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .sc-role { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
+  .sc-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+  .sc-tags span { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px; }
+  .staff-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 11px; color: var(--ink-muted); flex-wrap: wrap; gap: 6px; }
+  .staff-foot a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--ink-soft); }
+
+  /* ── 지난 호 (아카이브) ── */
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding: 20px 0 14px; }
+  .toolbar input {
+    flex: 1; min-width: 200px; font-family: 'Noto Sans KR', sans-serif; font-size: 14px;
+    padding: 9px 14px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; color: var(--ink);
+  }
+  .toolbar input:focus { outline: none; border-color: var(--ink-soft); }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chips button { border: 1px solid var(--rule); background: #fff; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; font-size: 12px; padding: 5px 13px; border-radius: 999px; color: var(--ink-soft); }
+  .chips button.on { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .month-label { font-size: 13px; color: var(--ink-muted); font-weight: 700; margin: 18px 0 8px; }
+  .rows { border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: #fff; }
+  .row { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--rule); text-decoration: none; color: inherit; }
+  .row:first-child { border-top: none; }
+  .row:hover { background: #faf8f3; }
+  .row .title { flex: 1; font-size: 14px; }
+  .row .date { font-size: 13px; color: var(--ink-muted); white-space: nowrap; }
+  .row .arrow { color: var(--ink-muted); font-size: 13px; }
+  .empty { padding: 30px; text-align: center; color: var(--ink-muted); font-size: 14px; }
+
+  /* ── 발행 캘린더 ── */
+  .week-block { margin-top: 20px; }
+  .week-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .week-head .wk { font-size: 14px; font-weight: 700; }
+  .week-head .cnt { font-size: 12px; color: var(--ink-muted); }
+  .grid6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  @media (max-width: 640px) { .grid6 { grid-template-columns: repeat(3, 1fr); } }
+  .day { border: 1px solid var(--rule); border-radius: 10px; padding: 8px; background: #fff; min-height: 74px; }
+  .day .dh { font-size: 11px; color: var(--ink-muted); margin-bottom: 6px; }
+  .day .tag { display: block; border-radius: 6px; padding: 4px 7px; font-size: 11px; font-weight: 700; margin-top: 4px; text-decoration: none; }
+  .day a.tag:hover { filter: brightness(0.93); }
+  .day .tag:first-of-type { margin-top: 0; }
+
+  footer { text-align: center; border-top: 3px double var(--rule-strong); margin-top: 40px; padding-top: 16px; font-size: 12px; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div style="background:#1b1a16;color:#f5f1e6;text-align:center;padding:9px 12px;font:600 14px/1.5 'Noto Sans KR',sans-serif">보관된 옛 신문입니다(PICK 5 · 디지털 브리핑 · 대한뉴스 · 이번 주도 수고했어, ~2026.10.24) · <a href="/" style="color:#4fd1b5">새 신문 「주용파의 오늘도 수고했어」 보러 가기 →</a></div>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="studio">HEALING MIND STUDIO</div>
+    <div class="of">주용파<span style="font-size:11px; vertical-align: super;">의</span></div>
+    <h1>오늘도 수고했어</h1>
+    <div class="dateline" id="dateline"></div>
+    <div class="slogan">“정확한 정보, 깊이 있는 분석. 더 나은 내일을 위해.”</div>
+  </header>
+
+  <nav>
+    <button class="on" data-view="front">TODAY</button>
+    <button data-view="archive">ARCHIVE</button>
+    <button data-view="calendar">CALENDAR</button>
+  </nav>
+
+  <!-- 공지 배너 (NOTICE 변수로 켜고 끔) -->
+  <div id="notice"></div>
+
+  <!-- ═══════════ 1면 ═══════════ -->
+  <main id="view-front">
+    <div class="lead" id="lead"></div>
+
+    <div class="weekstrip">
+      <h2>발행 시간표</h2>
+      <div class="schedule">
+        <div class="cell" style="background: var(--pick5-bg); color: var(--pick5-fg);">
+          <div class="d" style="color: var(--pick5-mid);">월 – 금</div>
+          <div class="n">주용파 PICK 5</div>
+          <div class="m">텍스트 카드뉴스 · 핵심 5가지</div>
+        </div>
+        <div class="cell" style="background: var(--digital-bg); color: var(--digital-fg);">
+          <div class="d" style="color: var(--digital-mid);">화</div>
+          <div class="n">디지털 브리핑</div>
+          <div class="m">영상 · AI·테크·플랫폼</div>
+        </div>
+        <div class="cell" style="background: var(--daehan-bg); color: var(--daehan-fg);">
+          <div class="d" style="color: var(--daehan-mid);">목</div>
+          <div class="n">대한 뉴스</div>
+          <div class="m">영상 · 대한민국 핵심 이슈</div>
+        </div>
+        <div class="cell" style="background: var(--gompapa-bg); color: var(--gompapa-fg);">
+          <div class="d" style="color: var(--gompapa-mid);">토</div>
+          <div class="n">이번 주도 수고했어</div>
+          <div class="m">영상 · 한 주를 돌아보는 시간</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weekstrip" style="border-bottom: none;">
+      <h2>H.M Studio 사원들</h2>
+      <div class="staffgrid">
+        <div class="staffcard">
+          <img src="/staff/jooyongpa.jpg" alt="주용파님">
+          <div>
+            <div class="sc-name">주용파님</div>
+            <div class="sc-role">앵커 · 편집</div>
+            <div class="sc-tags">
+              <span style="background: var(--pick5-bg); color: var(--pick5-fg);">PICK 5</span>
+              <span style="background: var(--digital-bg); color: var(--digital-fg);">디지털 브리핑</span>
+              <span style="background: var(--daehan-bg); color: var(--daehan-fg);">대한 뉴스</span>
+            </div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="/staff/hedi.jpg" alt="헤디님">
+          <div>
+            <div class="sc-name">헤디님</div>
+            <div class="sc-role">메일 매니저 · 06:00–22:00</div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="/staff/gompapa.jpg" alt="곰파파님">
+          <div>
+            <div class="sc-name">곰파파님</div>
+            <div class="sc-role">주말 에세이스트</div>
+            <div class="sc-tags">
+              <span style="background: var(--gompapa-bg); color: var(--gompapa-fg);">이번 주도 수고했어</span>
+            </div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="/staff/rooster.jpg" alt="수탉님">
+          <div>
+            <div class="sc-name">수탉님</div>
+            <div class="sc-role">아침 브리핑 · 08:00–16:00</div>
+          </div>
+        </div>
+        <div class="staffcard">
+          <img src="/staff/beaver.jpg" alt="비버님">
+          <div>
+            <div class="sc-name">비버님</div>
+            <div class="sc-role">맥 정비 · 09:00–17:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="staff-foot">
+        <span>총괄 · 클님 — 24시간 관제 · 일요일 전원 휴무</span>
+        <a href="/visit/" target="_blank">방문객 라운지 ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ 지난 호 ═══════════ -->
+  <main id="view-archive" class="hidden">
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="제목으로 검색">
+      <div class="chips" id="chips"></div>
+    </div>
+    <div id="archive-list"></div>
+  </main>
+
+  <!-- ═══════════ 발행 캘린더 ═══════════ -->
+  <main id="view-calendar">
+    <div id="calendar" class="hidden"></div>
+  </main>
+
+  <footer>
+    <a class="kakao-btn" href="https://open.kakao.com/o/p7sGTDvi" target="_blank">주용파와 소통하기 →</a><br>
+    주용파 · Healing Mind Studio · <a href="https://litt.ly/h.m.studio">litt.ly/h.m.studio</a>
+  </footer>
+</div>
+
+<!-- 영상 모달 -->
+<div id="vmod">
+  <div id="vmod-inner">
+    <button id="vmod-close" onclick="closeVmod()">✕</button>
+    <video id="vmod-v" controls playsinline preload="metadata"></video>
+    <div id="vmod-links"></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   ★ 발행물 추가하는 곳 ★
+   새로 발행할 때마다 아래 목록 맨 위에 한 줄씩 추가하세요.
+   cat:     'pick5' | 'digital' | 'daehan' | 'gompapa'
+   insta / threads / blog: 채널별 게시물 주소 (없는 채널은 '' 로)
+   thumb:   표지 이미지 파일. 이 HTML 파일 옆의 thumbs 폴더에 넣고
+            'thumbs/파일명.png' 형식으로 적으세요. 파일이 아직 없어도
+            카테고리 색상의 대체 표지가 자동으로 표시됩니다.
+   ══════════════════════════════════════════════════════════════ */
+const POSTS = [
+  // 현행 신문 작별 카드뉴스 — 10/24(토) 마지막 발행. rank:-1 로 같은 날 1면 메인(곰파파는 세컨). 날짜게이트로 토요일에만 노출.
+  { date: '2026-10-24', cat: 'pick5', rank: -1, hideAfter: '2026-10-24', title: '그동안 고마웠습니다 — 현행 「오늘도 수고했어」 마지막 발행',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-24_farewell.png',
+    video: '/videos/farewell_2026-10-24.mp4' },
+  { date: '2026-10-24', cat: 'gompapa', title: '레버리지 손실 6.3조 · 기준금리 3.00% 동결 · 이재명 대통령의 운동회 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/De24ErOtGsf/',
+    threads: 'https://www.threads.com/share/FwZ2vWylU/',
+    blog: 'https://blog.naver.com/act2lab/224452022207',
+    thumb: '/thumbs/2026-10-24_gompapa.jpg' },
+  { date: '2026-10-23', cat: 'pick5', title: '한은 금리 동결 · 김여정 확성기 위협 · 미·러·우크라 협상',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-23_pick5.png',
+    video: '/videos/pick5_2026-10-23.mp4' },
+  { date: '2026-10-22', cat: 'daehan', title: '한은, 오늘 기준금리 결정 · 코스피 5700선 회복 · 이재명 대통령 경찰개혁 주문',
+    insta: 'https://www.instagram.com/reel/DexhOZXNddX/',
+    threads: 'https://www.threads.com/share/JaKvum3uU/',
+    blog: 'https://blog.naver.com/act2lab/224449732587',
+    thumb: '/thumbs/2026-10-22_daehan.jpg' },
+  { date: '2026-10-22', cat: 'pick5', title: '우크라 3자협상 재개 · AI 안전 이탈 · 엔비디아 AI팩토리',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-22_pick5.png',
+    video: '/videos/pick5_2026-10-22.mp4' },
+  { date: '2026-10-21', cat: 'pick5', title: 'OpenAI 300억달러 · 반도체 급락 · Anthropic IPO',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-21_pick5.png',
+    video: '/videos/pick5_2026-10-21.mp4' },
+  { date: '2026-10-20', cat: 'pick5', title: 'AI칩 투자 대전 · OpenAI 로봇 진격 · 청해부대 논란',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-20_pick5.png',
+    video: '/videos/pick5_2026-10-20.mp4' },
+  { date: '2026-10-20', cat: 'digital', title: 'AI 거품론, 반도체 흔들다 · 오픈AI 폭주 에이전트 공개 · 美 딥시크 연방 퇴출',
+    insta: 'https://www.instagram.com/reel/DesU9-8NApI/',
+    threads: '', blog: '',
+    thumb: '/thumbs/2026-10-20_digital.jpg' },
+  { date: '2026-10-19', cat: 'pick5', title: '이재명 대통령 기자회견 · 트럼프 대러 제재 · CXMT 반도체 쇼크',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-19_pick5.png',
+    video: '/videos/pick5_2026-10-19.mp4' },
+  { date: '2026-10-17', cat: 'gompapa', title: '금리는 숨 고르기 · 성장률 3.3% 4만 달러 · 단풍이 산을 내려와요 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DekqOg_tiwP/',
+    threads: '', blog: '',
+    thumb: '/thumbs/2026-10-17_gompapa.jpg' },
+  { date: '2026-10-16', cat: 'pick5', title: '코스피 폭락 서킷브레이커 · 젠슨황 AI안전 경고 · 중국 D램 진격',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-16_pick5.png',
+    video: '/videos/pick5_2026-10-16.mp4' },
+  { date: '2026-10-15', cat: 'pick5', title: '제미나이4 아르곤 출시 · IMF 금융경고 · 미중 무역 재점화',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-15_pick5.png',
+    video: '/videos/pick5_2026-10-15.mp4' },
+  { date: '2026-10-15', cat: 'daehan', title: '코스피 6일째 하락 · IMF 성장률 3.3% 상향 · 임광현 대통령비서실장 임명',
+    insta: 'https://www.instagram.com/reel/DeelaSaNv4v/',
+    threads: '', blog: '',
+    thumb: '/thumbs/2026-10-15_daehan.jpg' },
+  { date: '2026-10-14', cat: 'pick5', title: '캐릭터AI 파산 · MS Maia300 · 코스피 폭락',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-14_pick5.png',
+    video: '/videos/pick5_2026-10-14.mp4' },
+  { date: '2026-10-13', cat: 'digital', title: 'AI 해킹, 은행을 뚫다 · 삼성 영업익 107조 · 금융보안 AI 재설계',
+    insta: 'https://www.instagram.com/reel/DeaTa__NZYr/',
+    threads: 'https://www.threads.com/share/FzmK9TWVL/',
+    blog: 'https://blog.naver.com/act2lab/224439813431',
+    thumb: '/thumbs/2026-10-13_digital.jpg' },
+  { date: '2026-10-13', cat: 'pick5', title: '北 미사일 도발 · 코스피 급락 · AI 빅딜 $7B',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-13_pick5.png',
+    video: '/videos/pick5_2026-10-13.mp4' },
+  { date: '2026-10-12', cat: 'pick5', title: '후티 리야드 공습 · 앤트로픽 IPO · IMF 방콕 개막',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-12_pick5.png',
+    video: '/videos/pick5_2026-10-12.mp4' },
+  { date: '2026-10-10', cat: 'gompapa', title: '국감 첫날부터 충돌 · 삼성 영업익 107조 · 누리호 5차도 성공 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DeSm8BGt9wK/',
+    threads: 'https://www.threads.com/share/EOOP8m9X4/',
+    blog: 'https://blog.naver.com/act2lab/224436831974',
+    thumb: '/thumbs/2026-10-10_gompapa.jpg' },
+  { date: '2026-10-09', cat: 'pick5', title: 'GPT-6 전체 출시 · HGV 시험발사 · 한-이집트 CEPA',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-09_pick5.png',
+    video: '/videos/pick5_2026-10-09.mp4' },
+  { date: '2026-10-08', cat: 'daehan', title: '삼성전자 100조 시험대 · 코스피 6800선 후퇴 · K-GX 10년 1000조',
+    insta: 'https://www.instagram.com/reel/DeNeDOzNYoU/',
+    threads: 'https://www.threads.com/share/E3l_ZDCAT/',
+    blog: 'https://blog.naver.com/act2lab/224434835921',
+    thumb: '/thumbs/2026-10-08_daehan.jpg' },
+  { date: '2026-10-08', cat: 'pick5', title: 'K-GX 녹색대전환 · 원전수출 미국 · OpenAI 수학 722편',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-08_pick5.png',
+    video: '/videos/pick5_2026-10-08.mp4' },
+  { date: '2026-10-07', cat: 'pick5', title: 'B-1 폭격기 英 철수 · 노벨 물리학상 · S&P 신기록',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-07_pick5.png',
+    video: '/videos/pick5_2026-10-07.mp4' },
+  { date: '2026-10-06', cat: 'digital', title: '금융권 덮친 AI 해킹 · 트럼프 대통령 SIF 출범 · 오픈AI EU서 워터마크',
+    insta: 'https://www.instagram.com/reel/DeIWaH9NAJ_/',
+    threads: 'https://www.threads.com/share/Md5yZMO-Q/',
+    blog: 'https://blog.naver.com/act2lab/224432570109',
+    thumb: '/thumbs/2026-10-06_digital.jpg' },
+  { date: '2026-10-06', cat: 'pick5', title: 'TSMC-테라팹 · 손정의 경고 · 북미회담 의지',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-06_pick5.png',
+    video: '/videos/pick5_2026-10-06.mp4' },
+  { date: '2026-10-05', cat: 'pick5', title: '금융 AI 해킹 도미노 · 북한 1000km 미사일 · 트럼프 초지능 선포',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-05_pick5.png',
+    video: '/videos/pick5_2026-10-05.mp4' },
+  { date: '2026-10-03', cat: 'gompapa', title: '기름값은 아직 무겁고 · 수출 1,209억 달러 · 47년 만에 받은 훈장 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DeA_28JNAMB/',
+    threads: 'https://www.threads.com/share/D6Owfu-Gf/',
+    blog: 'https://blog.naver.com/act2lab/224430191085',
+    thumb: '/thumbs/2026-10-03_gompapa.jpg' },
+  { date: '2026-10-02', cat: 'pick5', title: '채권금리 24년 최고 · FTC AI 조사 · 구글 우주 데이터센터',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-02_pick5.png',
+    video: '/videos/pick5_2026-10-02.mp4' },
+  { date: '2026-10-01', cat: 'pick5', title: '한국 2000억불 대미투자 · FTC AI 기업 조사 · 국채 22년 최고',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-10-01_pick5.png',
+    video: '/videos/pick5_2026-10-01.mp4' },
+  { date: '2026-10-01', cat: 'daehan', title: '초과세수 63조 역대 최대 · 8월 산업활동 트리플 감소 · 거시당국 국채시장 안정조치',
+    insta: 'https://www.instagram.com/reel/Dd7Ta5-kzqD/',
+    threads: 'https://www.threads.com/share/E4KP2l20V/',
+    blog: 'https://blog.naver.com/act2lab/224427519120',
+    thumb: '/thumbs/2026-10-01_daehan.jpg' },
+  { date: '2026-09-30', cat: 'pick5', title: 'AMD 82억 인수 · 트럼프 AI 회동 · DMZ 北지뢰 확인',
+    insta: 'https://www.instagram.com/reel/Dd4yBqctbvv/',
+    threads: 'https://www.threads.com/share/D7yrNgRQg/', blog: '',
+    thumb: '/thumbs/2026-09-30_pick5.png',
+    video: '/videos/pick5_2026-09-30.mp4' },
+  { date: '2026-09-29', cat: 'digital', title: '오픈AI 훈련 또 멈췄다 · 삼전닉스 5% 급락 · 엔비디아 에이전트 방화벽',
+    insta: 'https://www.instagram.com/reel/Dd2OotANYfO/',
+    threads: 'https://www.threads.com/share/Gbu2GHI1k/',
+    blog: 'https://blog.naver.com/act2lab/224425503739',
+    thumb: '/thumbs/2026-09-29_digital.jpg' },
+  { date: '2026-09-29', cat: 'pick5', title: '코스피 6900 붕괴 · 미중 후폭풍 · AI 보안 사고',
+    insta: 'https://www.instagram.com/reel/Dd2ImLNtw9Z/',
+    threads: 'https://www.threads.com/share/OV0wovina/',
+    blog: 'https://blog.naver.com/act2lab/224425484111',
+    thumb: '/thumbs/2026-09-29_pick5.png',
+    video: '/videos/pick5_2026-09-29.mp4' },
+  { date: '2026-09-28', cat: 'pick5', title: '이재명 대통령 귀국 · AI 위험 경보 · 호르무즈 교착',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-28_pick5.png',
+    video: '/videos/pick5_2026-09-28.mp4' },
+  { date: '2026-09-25', cat: 'pick5', title: '미중 국빈 정상회담 · UN AI 규제 · OECD 한국 3.7%',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-25_pick5.png',
+    video: '/videos/pick5_2026-09-25.mp4' },
+  { date: '2026-09-24', cat: 'pick5', title: '미-이란 유엔회담 · UN 안보리 AI 경고 · 한미 전략함정',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-24_pick5.png',
+    video: '/videos/pick5_2026-09-24.mp4' },
+  { date: '2026-09-23', cat: 'pick5', title: '한반도 평화 로드맵 · UN AI 에이전트 경고 · LG 엔비디아 합류',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-23_pick5.png',
+    video: '/videos/pick5_2026-09-23.mp4' },
+  { date: '2026-09-22', cat: 'pick5', title: '드론 총공격 · AI Force · 반도체 역대최대',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-22_pick5.png',
+    video: '/videos/pick5_2026-09-22.mp4' },
+  // ── 추석 연휴 인사(09-22~09-26) — 각 날짜 전엔 자동으로 숨겨짐(date<=today 필터) ──
+  { date: '2026-09-22', cat: 'digital', title: '조금 이르지만, 추석 인사드립니다',
+    insta: '', threads: '', blog: '', thumb: '/thumbs/2026-09-22_chuseok.jpg', fit: 'contain' },
+  { date: '2026-09-24', cat: 'daehan', title: '추석 전날, 따뜻한 인사 전합니다',
+    insta: '', threads: '', blog: '', thumb: '/thumbs/2026-09-24_chuseok.jpg', fit: 'contain' },
+  { date: '2026-09-26', cat: 'gompapa', title: '추석, 잘 보내셨나요?',
+    insta: '', threads: '', blog: '', thumb: '/thumbs/2026-09-26_chuseok.jpg', fit: 'contain' },
+  { date: '2026-09-21', cat: 'pick5', title: '미중 담판 · 연준 분열 · AI 반도체 1.6조',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-21_pick5.png',
+    video: '/videos/pick5_2026-09-21.mp4' },
+  { date: '2026-09-19', cat: 'gompapa', title: '청년 취업 46개월째 겨울 · 오픈AI 삼성을 찾다 · 추석 앞 무거운 장바구니 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DddRNOQNnqU/',
+    threads: 'https://www.threads.com/share/KTO6_X99k/',
+    blog: 'https://blog.naver.com/act2lab/224416974712',
+    thumb: '/thumbs/2026-09-19_gompapa.jpg' },
+  { date: '2026-09-18', cat: 'pick5', title: '연준 긴축 · OpenAI 이탈정렬 · 화웨이·구글 AI 공세',
+    insta: 'https://www.instagram.com/reel/DdcfEj8tDO6/',
+    threads: 'https://www.threads.com/share/E7ABjGPjQ/',
+    blog: 'https://blog.naver.com/act2lab/224416704361',
+    thumb: '/thumbs/2026-09-18_pick5.png',
+    video: '/videos/pick5_2026-09-18.mp4' },
+  { date: '2026-09-17', cat: 'daehan', title: '美 연준 금리 인상 · 반도체 수출 역대 최대 · 北 한미에 핵위협 경고',
+    insta: '', threads: '', blog: '/read/daehan-2026-09-17.html',
+    thumb: '' },
+  { date: '2026-09-17', cat: 'pick5', title: 'OpenAI 1.5조 달러 · 연준 금리 · AI 안전 3억 달러',
+    insta: 'https://www.instagram.com/reel/DdXUEjjtCfa/',
+    threads: 'https://www.threads.com/share/FoyOzn9xT/',
+    blog: 'https://blog.naver.com/act2lab/224414457896',
+    thumb: '/thumbs/2026-09-17_pick5.png',
+    video: '/videos/pick5_2026-09-17.mp4' },
+  { date: '2026-09-16', cat: 'pick5', title: '중국 AI인재 봉쇄 · MS 킬스위치 · 바이트댄스 실적',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-09-16_pick5.png',
+    video: '/videos/pick5_2026-09-16.mp4' },
+  { date: '2026-09-15', cat: 'digital', title: 'AI속도조절 공방 · 삼성 HBM4 총력전 · AI검색 점유율 변화',
+    insta: 'https://www.instagram.com/reel/DdSSvLEt7KF/',
+    threads: 'https://www.threads.com/share/RgYPXuyUz/',
+    blog: 'https://blog.naver.com/act2lab/224412045899',
+    thumb: '/thumbs/2026-09-15_digital.jpg' },
+  { date: '2026-09-15', cat: 'pick5', title: '홍해 봉쇄 위기 · FOMC 금리 압박 · K방산 유럽',
+    insta: 'https://www.instagram.com/reel/DdSIf92Ndx7/',
+    threads: 'https://www.threads.com/share/FymFpXBGy/',
+    blog: 'https://blog.naver.com/act2lab/224412018587',
+    thumb: '/thumbs/2026-09-15_pick5.png',
+    video: '/videos/pick5_2026-09-15.mp4' },
+  { date: '2026-09-14', cat: 'pick5', title: 'BRICS 탈달러 · 모디시진핑 · 美연준 86% · 북한SRBM',
+    insta: 'https://www.instagram.com/reel/DdP9DDntJRN/',
+    threads: 'https://www.threads.com/share/GLxZePrGM/',
+    blog: 'https://blog.naver.com/act2lab/224410925770',
+    thumb: '/thumbs/2026-09-14_pick5.png',
+    video: '/videos/pick5_2026-09-14.mp4' },
+  { date: '2026-09-12', cat: 'gompapa', title: '가을 이사철 전셋집 걱정 · 청년 AI 이용권 예산 논란 · 정보유출 최대 10% 과징금 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DdK98FUNhGx/',
+    threads: 'https://www.threads.com/share/FS5ixK8Dn/',
+    blog: 'https://blog.naver.com/act2lab/224409221310',
+    thumb: '/thumbs/2026-09-12_gompapa.jpg' },
+  { date: '2026-09-11', cat: 'pick5', title: '美 PPI 5.4% 충격 · iPhone 18 Pro 2nm · DeepSeek IPO 공식화',
+    insta: 'https://www.instagram.com/reel/DdH0BU-tvLp/',
+    threads: 'https://www.threads.com/share/Fq7OOglBU/',
+    blog: 'https://blog.naver.com/act2lab/224407860839',
+    thumb: '/thumbs/2026-09-11_pick5.png',
+    video: '/videos/pick5_2026-09-11.mp4' },
+  { date: '2026-09-10', cat: 'daehan', title: '이재명 프랑스 순방 마무리 · 코스피 7000선 회복 · 반도체 수출 역대 최대',
+    insta: 'https://www.instagram.com/reel/DdFcudQtU3E/',
+    threads: 'https://www.threads.com/share/FDyMIbIy0/',
+    blog: 'https://blog.naver.com/act2lab/224406761934',
+    thumb: '/thumbs/2026-09-10_daehan.jpg' },
+  { date: '2026-09-10', cat: 'pick5', title: 'AI 수학 혁명 · 퀄컴-AWS 딜 · 유가 100달러 돌파',
+    insta: 'https://www.instagram.com/reel/DdFcVIQNpNG/',
+    threads: 'https://www.threads.com/share/DVYr-oWkJ/',
+    blog: 'https://blog.naver.com/act2lab/224406758742',
+    thumb: '/thumbs/2026-09-10_pick5.png',
+    video: '/videos/pick5_2026-09-10.mp4' },
+  { date: '2026-09-09', cat: 'pick5', title: '한국 GNI 37년 최대 · 엔비디아 허깅페이스 · 중국 AI 4배',
+    insta: 'https://www.instagram.com/reel/DdC7i1HtKOk/',
+    threads: 'https://www.threads.com/share/Dp1O95Thd/',
+    blog: 'https://blog.naver.com/act2lab/224405618941',
+    thumb: '/thumbs/2026-09-09_pick5.png',
+    video: '/videos/pick5_2026-09-09.mp4' },
+  { date: '2026-09-08', cat: 'digital', title: '오픈AI 속도조절 경고 · 아스트라發 소부장 랠리 · AI인재 귀환 15억 지원',
+    insta: 'https://www.instagram.com/reel/DdATMCMN7zf/',
+    threads: 'https://www.threads.com/share/FjUfvzW-Q/',
+    blog: 'https://blog.naver.com/act2lab/224404411128',
+    thumb: '/thumbs/2026-09-08_digital.jpg' },
+  { date: '2026-09-08', cat: 'pick5', title: 'AI 반도체 랠리 · 오픈AI 인턴 달성 · 연준 금리 향방',
+    insta: 'https://www.instagram.com/reel/DdANQ6cNThI/',
+    threads: 'https://www.threads.com/share/NqSM1A9pO/',
+    blog: 'https://blog.naver.com/act2lab/224404379838',
+    thumb: '/thumbs/2026-09-08_pick5.png',
+    video: '/videos/pick5_2026-09-08.mp4' },
+  { date: '2026-09-07', cat: 'pick5', title: '프랑스 AI 외교 · 고용 역설 FOMC · 수출 역대 기록',
+    insta: 'https://www.instagram.com/reel/Dc96gIINAmm/',
+    threads: 'https://www.threads.com/share/D0MbiFU8c/',
+    blog: 'https://blog.naver.com/act2lab/224403333417',
+    thumb: '/thumbs/2026-09-07_pick5.png',
+    video: '/videos/pick5_2026-09-07.mp4' },
+  { date: '2026-09-05', cat: 'gompapa', title: '물가 다시 3%대로 · 호르무즈 유조선 피격 · 삼성·SK 엔비디아행 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/Dc4gcLANTBo/',
+    threads: 'https://www.threads.com/share/GaVElLL1V/',
+    blog: 'https://blog.naver.com/act2lab/224401560283',
+    thumb: '/thumbs/2026-09-05_gompapa.jpg' },
+  { date: '2026-09-04', cat: 'pick5', title: '엔비디아·허깅페이스 인수 · G20 AI 규제 합의 · 구글 독점 판결',
+    insta: 'https://www.instagram.com/reel/Dc2l8aNNwSh/',
+    threads: 'https://www.threads.com/share/FLg0glgcJ/',
+    blog: 'https://blog.naver.com/act2lab/224400846595',
+    thumb: '/thumbs/2026-09-04_pick5.png',
+    video: '/videos/pick5_2026-09-04.mp4' },
+  { date: '2026-09-03', cat: 'daehan', title: '유가 급등 코스피 급락 · 정기국회 오늘 개막 · 반도체 수출 역대 최대',
+    insta: 'https://www.instagram.com/reel/DczbthrtPbd/',
+    threads: 'https://www.threads.com/share/HVmFY7fkv/',
+    blog: 'https://blog.naver.com/act2lab/224399306307',
+    thumb: '/thumbs/2026-09-03_daehan.jpg' },
+  { date: '2026-09-03', cat: 'pick5', title: '미이란 교전 · 물가 3% 재진입 · 정부예산 820조',
+    insta: 'https://www.instagram.com/reel/DczXMNKNGyn/',
+    threads: 'https://www.threads.com/share/NNOqHWmXr/',
+    blog: 'https://blog.naver.com/act2lab/224399277552',
+    thumb: '/thumbs/2026-09-03_pick5.png',
+    video: '/videos/pick5_2026-09-03.mp4' },
+  { date: '2026-09-02', cat: 'pick5', title: '중동 교전 재개 · 반도체 수출 신기록 · 펜타곤 AI 개방',
+    insta: 'https://www.instagram.com/reel/Dcw_3YbtGkc/',
+    threads: 'https://www.threads.com/share/DRmJ6XhDq/',
+    blog: 'https://blog.naver.com/act2lab/224398193279',
+    thumb: '/thumbs/2026-09-02_pick5.png',
+    video: '/videos/pick5_2026-09-02.mp4' },
+  { date: '2026-09-01', cat: 'digital', title: '애플 CEO 터너스 취임 · 오픈AI 커서 공급중단 · 하정우 AI전략위 취임',
+    insta: 'https://www.instagram.com/reel/DcuQ440tYYe/',
+    threads: 'https://www.threads.com/share/DxVu00dfg/',
+    blog: 'https://blog.naver.com/act2lab/224396910078',
+    thumb: '/thumbs/2026-09-01_digital.jpg' },
+  { date: '2026-09-01', cat: 'pick5', title: '미이란 봉쇄 재격화 · AI 에이전트 사이버공격 · 코스피 전약후강',
+    insta: 'https://www.instagram.com/reel/DcuL-yHt7jW/',
+    threads: 'https://www.threads.com/share/DyI6eEPd0/',
+    blog: 'https://blog.naver.com/act2lab/224396881467',
+    thumb: '/thumbs/2026-09-01_pick5.png',
+    video: '/videos/pick5_2026-09-01.mp4' },
+  { date: '2026-08-31', cat: 'pick5', title: '이재명 AI 투톱 · 미중 AI 패권 · Sony·Anthropic 소송',
+    insta: 'https://www.instagram.com/reel/Dcr3eFOtRS7/',
+    threads: 'https://www.threads.com/share/D2q6Zr-Jf/',
+    blog: 'https://blog.naver.com/act2lab/224395744671',
+    thumb: '/thumbs/2026-08-31_pick5.png',
+    video: '/videos/pick5_2026-08-31.mp4' },
+  { date: '2026-08-29', cat: 'gompapa', title: '오르는 물가 특별관리 TF · AI 반도체 다시 훈풍 · 빌게이츠의 AI 경고장 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DcluoffNG6K/',
+    threads: 'https://www.threads.com/share/E7QOjrdih/',
+    blog: 'https://blog.naver.com/act2lab/224393745034',
+    thumb: '/thumbs/2026-08-29_gompapa.jpg' },
+  { date: '2026-08-28', cat: 'pick5', title: '한은 금리 3.0% · 엔비디아 허깅페이스 · 호르무즈 교착',
+    insta: 'https://www.instagram.com/reel/DckP4WYtHy8/',
+    threads: 'https://www.threads.com/share/HpkqwSClb/',
+    blog: 'https://blog.naver.com/act2lab/224392959035',
+    thumb: '/thumbs/2026-08-28_pick5.png',
+    video: '/videos/pick5_2026-08-28.mp4' },
+  { date: '2026-08-27', cat: 'daehan', title: '이진숙 제명안 국회 통과 · 한은 기준금리 결정 · 쿠팡 공정위 조사 거부',
+    insta: 'https://www.instagram.com/reel/DchQ_5RtEeO/',
+    threads: 'https://www.threads.com/share/DjyW2wlsg/',
+    blog: 'https://blog.naver.com/act2lab/224391594749',
+    thumb: '/thumbs/2026-08-27_daehan.jpg' },
+  { date: '2026-08-27', cat: 'pick5', title: '엔비디아 실적 서프라이즈 · 잭슨홀 금리 경계 · AI가 인간 노동 대체',
+    insta: 'https://www.instagram.com/reel/DchLZm6NyIy/',
+    threads: 'https://www.threads.com/share/FobX33M2D/',
+    blog: 'https://blog.naver.com/act2lab/224391574457',
+    thumb: '/thumbs/2026-08-27_pick5.png',
+    video: '/videos/pick5_2026-08-27.mp4' },
+  { date: '2026-08-26', cat: 'pick5', title: 'AI 정보전 · 엔비디아 실적 · SMR 전력 경쟁',
+    insta: 'https://www.instagram.com/reel/Dce9XnXBW5i/',
+    threads: 'https://www.threads.com/share/DryzRVgW0/',
+    blog: 'https://blog.naver.com/act2lab/224390538454',
+    thumb: '/thumbs/2026-08-26_pick5.png',
+    video: '/videos/pick5_2026-08-26.mp4' },
+  { date: '2026-08-25', cat: 'digital', title: 'GPT-5.6 가격 20% 인하 · 삼성 파운드리 15% 인상 · A2A AI표준 편입',
+    insta: 'https://www.instagram.com/reel/DccG9lkteQo/',
+    threads: 'https://www.threads.com/share/Glhj54o7-/',
+    blog: 'https://blog.naver.com/act2lab/224389247411',
+    thumb: '/thumbs/2026-08-25_digital.jpg' },
+  { date: '2026-08-25', cat: 'pick5', title: '알리바바 Wan3.0 · XPeng 로봇 · 허깅페이스 매각',
+    insta: 'https://www.instagram.com/reel/DccCFsPtHue/',
+    threads: 'https://www.threads.com/share/GQ7RRKU6k/',
+    blog: 'https://blog.naver.com/act2lab/224389229116',
+    thumb: '/thumbs/2026-08-25_pick5.png',
+    video: '/videos/pick5_2026-08-25.mp4' },
+  { date: '2026-08-24', cat: 'pick5', title: '미-캐 무역 결렬 · EU 에너지세 · 美 비자 금지 기각',
+    insta: 'https://www.instagram.com/reel/DcZy4UPtZ1C/',
+    threads: 'https://www.threads.com/share/GNHhCGaqn/',
+    blog: 'https://blog.naver.com/act2lab/224388170980',
+    thumb: '/thumbs/2026-08-24_pick5.png',
+    video: '/videos/pick5_2026-08-24.mp4' },
+  { date: '2026-08-22', cat: 'gompapa', title: '거제·통영 특별재난지역 · 태풍 사우델 북상 · 반도체주 롤러코스터 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DcUau1WNGQd/',
+    threads: 'https://www.threads.com/share/IVLH7Iv6v/',
+    blog: 'https://blog.naver.com/act2lab/224386318600',
+    thumb: '/thumbs/2026-08-22_gompapa.jpg' },
+  { date: '2026-08-21', cat: 'pick5', title: 'SK하이닉스 40조 · 왕이 방한 · 캐나다 관세 발효',
+    insta: 'https://www.instagram.com/reel/DcTerZgNw7D/',
+    threads: 'https://www.threads.com/share/IBkjLe8Mb/',
+    blog: 'https://blog.naver.com/act2lab/224386098656',
+    thumb: '/thumbs/2026-08-21_pick5.png',
+    video: '/videos/pick5_2026-08-21.mp4' },
+  { date: '2026-08-20', cat: 'pick5', title: '코스피 급락·사이드카 · SK하이닉스 40조 · 왕이 방한',
+    insta: 'https://www.instagram.com/reel/DcPJdoMtDz3/',
+    threads: 'https://www.threads.com/share/HjMlxKDYi/',
+    blog: 'https://blog.naver.com/act2lab/224384026604',
+    thumb: '/thumbs/2026-08-20_pick5.png',
+    video: '/videos/pick5_2026-08-20.mp4' },
+  { date: '2026-08-19', cat: 'pick5', title: 'Etched $21B · ECB AI 버블 경고 · Meta 청소년 재판',
+    insta: 'https://www.instagram.com/reel/DcNAv9eNI9m/',
+    threads: 'https://www.threads.com/share/KUvMV-xjc/',
+    blog: 'https://blog.naver.com/act2lab/224383023450',
+    thumb: '/thumbs/2026-08-19_pick5.png',
+    video: '/videos/pick5_2026-08-19.mp4' },
+  { date: '2026-08-18', cat: 'digital', title: 'OpenAI 1조달러 상장 준비 · 앤트로픽 첫 흑자 · 구글·엔비디아 신모델 견제',
+    insta: 'https://www.instagram.com/reel/DcKFARyt_pK/',
+    threads: 'https://www.threads.com/share/E16K3DsNS/',
+    blog: 'https://blog.naver.com/act2lab/224381764769',
+    thumb: '/thumbs/2026-08-18_digital.jpg' },
+  { date: '2026-08-18', cat: 'pick5', title: 'Stripe·OpenRouter 인수 · 한미훈련 축소 · Anthropic 첫 흑자',
+    insta: 'https://www.instagram.com/reel/DcJ_ZtKN_6v/',
+    threads: 'https://www.threads.com/share/Ga71BzmpS/',
+    blog: 'https://blog.naver.com/act2lab/224381745377',
+    thumb: '/thumbs/2026-08-18_pick5.png',
+    video: '/videos/pick5_2026-08-18.mp4' },
+  { date: '2026-08-17', cat: 'pick5', title: '드론전 확전 · 레바논 재격화 · AI 랠리 역풍',
+    insta: 'https://www.instagram.com/reel/DcHwxZktbX2/',
+    threads: 'https://www.threads.com/share/E6og04n8i/',
+    blog: 'https://blog.naver.com/act2lab/224380912209',
+    thumb: '/thumbs/2026-08-17_pick5.png',
+    video: '/videos/pick5_2026-08-17.mp4' },
+  { date: '2026-08-15', cat: 'gompapa', title: '광복 81주년 특집 · 독립유공자를 기리며 · 유관순 열사를 만나다',
+    insta: 'https://www.instagram.com/reel/DcChBKyNO-v/',
+    threads: 'https://www.threads.com/share/Fig0PRgJZ/',
+    blog: 'https://blog.naver.com/act2lab/224379242616',
+    thumb: '/thumbs/2026-08-15_gompapa.jpg' },
+  { date: '2026-08-14', cat: 'pick5', title: '코스피 6800 탈환 · Grok 4.6 출시 · AI 인프라 1조달러 붐',
+    insta: 'https://www.instagram.com/reel/DcAg-KKNAY7/',
+    threads: 'https://www.threads.com/share/DxjVB_oyF/',
+    blog: 'https://blog.naver.com/act2lab/224378862134',
+    thumb: '/thumbs/2026-08-14_pick5.png',
+    video: '/videos/pick5_2026-08-14.mp4' },
+  { date: '2026-08-13', cat: 'daehan', title: '정부 부동산 5만 가구 공급 · 코스피 6579선 반도체 훈풍 · 7대 시드 프로젝트',
+    insta: 'https://www.instagram.com/reel/Db9O5Tct_33/',
+    threads: 'https://www.threads.com/share/E0I4TPCUv/',
+    blog: 'https://blog.naver.com/act2lab/224377013914',
+    thumb: '/thumbs/2026-08-13_daehan.jpg' },
+  { date: '2026-08-13', cat: 'pick5', title: 'CPI 안도 · 구글 Pixel 11 · 반도체 수출 폭증',
+    insta: 'https://www.instagram.com/reel/Db9Gj3et15p/',
+    threads: 'https://www.threads.com/share/DnSlSkdkr/',
+    blog: 'https://blog.naver.com/act2lab/224376987358',
+    thumb: '/thumbs/2026-08-13_pick5.png',
+    video: '/videos/pick5_2026-08-13.mp4' },
+  { date: '2026-08-12', cat: 'pick5', title: '엔비디아 순환금융 · BYD 현대차 추월 · 세제개편 역풍',
+    insta: 'https://www.instagram.com/reel/Db6k2luN5Pn/',
+    threads: 'https://www.threads.com/share/F90OCBakX/',
+    blog: 'https://blog.naver.com/act2lab/224375829218',
+    thumb: '/thumbs/2026-08-12_pick5.png',
+    video: '/videos/pick5_2026-08-12.mp4' },
+  { date: '2026-08-11', cat: 'digital', title: '메타 오픈웨이트 에이전트 공개 · TSMC 매출 45% 급증 · 한국 5조 소부장 펀드',
+    insta: 'https://www.instagram.com/reel/Db4E8BEtskT/',
+    threads: 'https://www.threads.com/share/HKCOcjmij/',
+    blog: 'https://blog.naver.com/act2lab/224374730166',
+    thumb: '/thumbs/2026-08-11_digital.jpg' },
+  { date: '2026-08-11', cat: 'pick5', title: 'Meta AI 에이전트 · TSMC 사상 최대 · 삼성 HBM4 황금수율',
+    insta: 'https://www.instagram.com/reel/Db3-BZDtXSp/',
+    threads: 'https://www.threads.com/share/FRkubZf_9/',
+    blog: 'https://blog.naver.com/act2lab/224374703241',
+    thumb: '/thumbs/2026-08-11_pick5.png',
+    video: '/videos/pick5_2026-08-11.mp4' },
+  { date: '2026-08-10', cat: 'pick5', title: '미군 무기 고갈 · 이란 호르무즈 조건 · 43년 최저 비축유',
+    insta: 'https://www.instagram.com/reel/Db1--PatE67/',
+    threads: 'https://www.threads.com/share/Du-tlr77R/',
+    blog: 'https://blog.naver.com/act2lab/224373803436',
+    thumb: '/thumbs/2026-08-10_pick5.png',
+    video: '/videos/pick5_2026-08-10.mp4' },
+  { date: '2026-08-08', cat: 'gompapa', title: '물가 2.8%로 둔화 · 폭염 속 아파트 정전 · 출렁인 증시 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DbwZvUutGNy/',
+    threads: 'https://www.threads.com/share/F7nxpVYXJ/',
+    blog: 'https://blog.naver.com/act2lab/224371793519',
+    thumb: '/thumbs/2026-08-08_gompapa.jpg' },
+  { date: '2026-08-07', cat: 'pick5', title: 'AI 탈주 경고 · 로봇 IPO · 구글 인도 논란',
+    insta: 'https://www.instagram.com/reel/DbuBOnvNmVZ/',
+    threads: 'https://www.threads.com/share/FkzJK6_S-/',
+    blog: 'https://blog.naver.com/act2lab/224370796736',
+    thumb: '/thumbs/2026-08-07_pick5.png',
+    video: '/videos/pick5_2026-08-07.mp4' },
+  { date: '2026-08-06', cat: 'daehan', title: '기록적 폭염 재난경보 · 검찰 직접수사권 폐지 · 코스피 3.76% 급등',
+    insta: 'https://www.instagram.com/reel/DbrPvNYNTIb/',
+    threads: 'https://www.threads.com/share/FYUyyeqAW/',
+    blog: 'https://blog.naver.com/act2lab/224369596705',
+    thumb: '/thumbs/2026-08-06_daehan.jpg' },
+  { date: '2026-08-06', cat: 'pick5', title: '삼성·하이닉스 中장비 · AI 에이전트 지갑 · 대만 봉쇄 고조',
+    insta: 'https://www.instagram.com/reel/DbrH7w9tPFL/',
+    threads: 'https://www.threads.com/share/DSaMdrekz/',
+    blog: 'https://blog.naver.com/act2lab/224369558602',
+    thumb: '/thumbs/2026-08-06_pick5.png',
+    video: '/videos/pick5_2026-08-06.mp4' },
+  { date: '2026-08-05', cat: 'pick5', title: '백악관 AI안전 회의 · EU AI법 집행 · 팔란티어 급성장',
+    insta: 'https://www.instagram.com/reel/DbohPPZNZGE/',
+    threads: 'https://www.threads.com/share/Bj01I163aO/',
+    blog: 'https://blog.naver.com/act2lab/224368466236',
+    thumb: '/thumbs/2026-08-05_pick5.png',
+    video: '/videos/pick5_2026-08-05.mp4' },
+  { date: '2026-08-04', cat: 'digital', title: 'EU AI 표시 의무 발효 · 오픈AI 에이전트 침해 · 아마존 2200억弗 투자',
+    insta: 'https://www.instagram.com/reel/DbmC6NXNMj1/',
+    threads: 'https://www.threads.com/share/FnVjDJZ70/',
+    blog: 'https://blog.naver.com/act2lab/224367398388',
+    thumb: '/thumbs/2026-08-04_digital.jpg' },
+  { date: '2026-08-04', cat: 'pick5', title: '반도체 세제공제 · 중남미 광물 외교 · 로봇주 급등',
+    insta: 'https://www.instagram.com/reel/Dbl9hBlt6wT/',
+    threads: 'https://www.threads.com/share/OGvzXSTwk/',
+    blog: 'https://blog.naver.com/act2lab/224367377907',
+    thumb: '/thumbs/2026-08-04_pick5.png',
+    video: '/videos/pick5_2026-08-04.mp4' },
+  { date: '2026-08-03', cat: 'pick5', title: 'AI 에이전트 해킹 · 미 ISM PMI · 코스피 8000',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-08-03_pick5.png',
+    video: '/videos/pick5_2026-08-03.mp4' },
+  { date: '2026-08-01', cat: 'gompapa', title: '코스피 롤러코스터 · 개미들의 강제 매도 · 역대 최대 실적 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DbeV391tDex/',
+    threads: 'https://www.threads.com/share/KXIYZAmw2/',
+    blog: 'https://blog.naver.com/act2lab/224364567843',
+    thumb: '/thumbs/2026-08-01_gompapa.jpg' },
+  { date: '2026-07-31', cat: 'pick5', title: '죄송합니다 — 잘못된 기사로 혼란을 드린 점 사과드립니다',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-07-31_apology.png' },
+  { date: '2026-07-30', cat: 'daehan', title: '코스피 이틀새 16% 급락 · F4 긴급 점검회의 · 연준 5회 연속 동결',
+    insta: 'https://www.instagram.com/reel/DbZRYlrtSiL/',
+    threads: 'https://www.threads.com/share/OqR1tvqwc/',
+    blog: 'https://blog.naver.com/act2lab/224362450274',
+    thumb: '/thumbs/2026-07-30_daehan.jpg' },
+  { date: '2026-07-30', cat: 'pick5', title: '연준 5연속 동결 · 하이닉스 60.5조 · 삼성 HBM4 양산',
+    insta: 'https://www.instagram.com/reel/DbZQr3mtbHZ/',
+    threads: 'https://www.threads.com/share/FgaYzXkNm/',
+    blog: 'https://blog.naver.com/act2lab/224362448437',
+    thumb: '/thumbs/2026-07-30_pick5.png',
+    video: '/videos/pick5_2026-07-30.mp4' },
+  { date: '2026-07-29', cat: 'pick5', title: '코스피 검은 화요일 · 中 DUV 자립 · Claude Opus 5 IPO',
+    insta: '', threads: '', blog: '',
+    thumb: '/thumbs/2026-07-29_pick5.png',
+    video: '/videos/pick5_2026-07-29.mp4' },
+  { date: '2026-07-28', cat: 'digital', title: '엔비디아 오픈AI 2500억弗 보증 · SK 5000억弗 AI인프라 · 네이버 14조 유치',
+    insta: 'https://www.instagram.com/reel/DbUGUUbtK8e/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbUGVHyk2bT',
+    blog: 'https://blog.naver.com/act2lab/224360086682',
+    thumb: '/thumbs/2026-07-28_digital.jpg' },
+  { date: '2026-07-28', cat: 'pick5', title: 'AI 탈옥 쇼크 · 5000억 데이터센터 · 미국 301 관세 발효',
+    insta: 'https://www.instagram.com/reel/DbT_o-vNZTv/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbT_reOk1de',
+    blog: 'https://blog.naver.com/act2lab/224360050427',
+    thumb: '/thumbs/2026-07-28_pick5.png',
+    video: '/videos/pick5_2026-07-28.mp4' },
+  { date: '2026-07-27', cat: 'pick5', title: 'AI 탈출 사태 · Claude Opus 5 · 트럼프 신관세',
+    insta: 'https://www.instagram.com/reel/DbRnGgwNBg9/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbRnJHaE0LB',
+    blog: 'https://blog.naver.com/act2lab/224358968403',
+    thumb: '/thumbs/2026-07-27_pick5.png',
+    video: '/videos/pick5_2026-07-27.mp4' },
+  { date: '2026-07-25', cat: 'gompapa', title: '코스피 급락 · 오르는 물가·집값 · 폭염의 여름 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DbMXd1ntDjL/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbMW_7qE0px',
+    blog: 'https://blog.naver.com/act2lab/224357223400',
+    thumb: '/thumbs/2026-07-25_gompapa.jpg' },
+  { date: '2026-07-24', cat: 'pick5', title: '미-EU 무역합의 · OpenAI 300억弗 데이터센터 · 사우디 원자력협정',
+    insta: 'https://www.instagram.com/reel/DbJ4ju7tt7F/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbJ4mank7yv',
+    blog: 'https://blog.naver.com/act2lab/224356241018',
+    thumb: '/thumbs/2026-07-24_pick5.png',
+    video: '/videos/pick5_2026-07-24.mp4' },
+  { date: '2026-07-23', cat: 'daehan', title: '부동산 국민에 묻다 · 10% 관세 시한 D-1 · 7월 수출 52% 급증',
+    insta: 'https://www.instagram.com/reel/DbHQvI7T2XI/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbHQaPSk_R2',
+    blog: 'https://blog.naver.com/act2lab/224355096909',
+    thumb: '/thumbs/2026-07-23_daehan.jpg' },
+  { date: '2026-07-23', cat: 'pick5', title: '이란 유가 $92 · 중국 AI 셀오프 · 삼성 AI 안경 언팩',
+    insta: 'https://www.instagram.com/reel/DbHEMLMzSjI/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbHD6EFk_DT',
+    blog: 'https://blog.naver.com/act2lab/224355040515',
+    thumb: '/thumbs/2026-07-23_pick5.png',
+    video: '/videos/pick5_2026-07-23.mp4' },
+  { date: '2026-07-22', cat: 'pick5', title: '중국 AI 공습 · 캐나다 관세 폭탄 · 원화 국제화',
+    insta: 'https://www.instagram.com/reel/DbEr8yGNj-D/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbEr1jAE-My',
+    blog: 'https://blog.naver.com/act2lab/224353955581',
+    thumb: '/thumbs/2026-07-22_pick5.png',
+    video: '/videos/pick5_2026-07-22.mp4' },
+  { date: '2026-07-21', cat: 'digital', title: 'AMD 헬리오스 AI랙 출격 · 반도체지수 약세장 진입 · 원화 국제화 로드맵',
+    insta: 'https://www.instagram.com/reel/DbCOjzHtJxR/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbCOk2Jk3Ip',
+    blog: 'https://blog.naver.com/act2lab/224352884594',
+    thumb: '/thumbs/2026-07-21_digital.jpg' },
+  { date: '2026-07-21', cat: 'pick5', title: 'WAICO 창설 · 원화 국제화 · 이란 봉쇄 유가 급등',
+    insta: 'https://www.instagram.com/reel/DbCEZcxN0B4/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DbCEb4Hk7mj',
+    blog: 'https://blog.naver.com/act2lab/224352816791',
+    thumb: '/thumbs/2026-07-21_pick5.png',
+    video: '/videos/pick5_2026-07-21.mp4' },
+  { date: '2026-07-20', cat: 'pick5', title: '화웨이 AI칩 8192장 · 한은 금리 인상 · 유가 10% 폭등',
+    insta: 'https://www.instagram.com/reel/Da_UbkLhuGT/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Da_UTSjk1ER',
+    blog: 'https://blog.naver.com/act2lab/224351608892',
+    thumb: '/thumbs/2026-07-20_pick5.png',
+    video: '/videos/pick5_2026-07-20.mp4' },
+  { date: '2026-07-18', cat: 'gompapa', title: '금리 3년 반 만에 인상 · 출렁인 증시 · \'모두의 AI\'가 온다 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/Da6YuIQNmEt/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Da6YxG9EzSw',
+    blog: 'https://blog.naver.com/act2lab/224349997036',
+    thumb: '/thumbs/2026-07-18_gompapa.png' },
+  { date: '2026-07-17', cat: 'pick5', title: 'WAIC 개막 · Gemini 3.5 출시 · AI 패권 분수령',
+    insta: 'https://www.instagram.com/reel/Da3w011NYDT/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Da3w4ZOkxRY',
+    blog: 'https://blog.naver.com/act2lab/224349164033',
+    thumb: '/thumbs/2026-07-17_pick5.png' },
+  { date: '2026-07-16', cat: 'daehan', title: '한은 기준금리 3년반 만에 인상 · 코스피 7천선 재탈환 · SK하이닉스 나스닥 상장',
+    insta: 'https://www.instagram.com/reel/Da1IN2QNhB4/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Da1IQqzE0tq',
+    blog: 'https://blog.naver.com/act2lab/224348092109',
+    thumb: '/thumbs/2026-07-16_daehan.png' },
+  { date: '2026-07-16', cat: 'pick5', title: '한국 AI 1350조 · OpenAI 정부 지분 · Anthropic IPO',
+    insta: 'https://www.instagram.com/reel/Da1AwoAtQJc/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Da1A3rUk0-6',
+    blog: 'https://blog.naver.com/act2lab/224348060116',
+    thumb: '/thumbs/2026-07-16_pick5.png' },
+  { date: '2026-07-15', cat: 'pick5', title: '삼성 영업익 89조 · 호르무즈 재점화 · AI 대변동',
+    insta: 'https://www.instagram.com/reel/DaybgfnTBft/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Dayb0wEk3Gl',
+    blog: 'https://blog.naver.com/act2lab/224346980195',
+    thumb: '/thumbs/2026-07-15_pick5.png' },
+  { date: '2026-07-14', cat: 'digital', title: '코스피 서킷브레이커 · 미래대응기금 신설 · 전 국민 AI 챗봇',
+    insta: 'https://www.instagram.com/reel/Dav9pF4tM9f/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Dav9qyPkzB7',
+    blog: 'https://blog.naver.com/act2lab/224345868683',
+    thumb: '/thumbs/2026-07-14_digital.png' },
+  { date: '2026-07-14', cat: 'pick5', title: 'Apple·OpenAI 소송 · AI 표준 전쟁 · 중국 AI 굴기',
+    insta: 'https://www.instagram.com/reel/Dav3dbDtNo7/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Dav3xq9k0bY',
+    blog: 'https://blog.naver.com/act2lab/224345845608',
+    thumb: '/thumbs/2026-07-14_pick5.png' },
+  { date: '2026-07-13', cat: 'pick5', title: '미·이란 종전합의 · 수출 1,000억 달러 · 중국 GLM-5.2 충격',
+    insta: 'https://www.instagram.com/reel/DatRY8LTI0z/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DatRgvPkwgI',
+    blog: 'https://blog.naver.com/act2lab/224344690595',
+    thumb: '/thumbs/2026-07-13_pick5.png' },
+  { date: '2026-07-11', cat: 'gompapa', title: '삼성전자 89조 · 검은 수요일 증시 · 물가·폭염 — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DaodmQFt_Gt/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Daodn--k2ys',
+    blog: 'https://blog.naver.com/act2lab/224343194296',
+    thumb: '/thumbs/2026-07-11_gompapa.png' },
+  { date: '2026-07-10', cat: 'pick5', title: 'GPT-5.6 전면 개방 · Grok 4.5 격돌 · UN AI 규범 출범',
+    insta: 'https://www.instagram.com/reel/DaljZ1Jzp_r/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaljiRrky_X',
+    blog: 'https://blog.naver.com/act2lab/224342097978',
+    thumb: '/thumbs/2026-07-10_pick5.png' },
+  { date: '2026-07-09', cat: 'daehan', title: "삼성전자 영업익 89조 '사상 최대' · 李·젤렌스키 첫 정상회담 · IMF 한국 성장률 2.6%로 상향",
+    insta: 'https://www.instagram.com/reel/DajHJHKtS3V/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DajHB55E2S-',
+    blog: 'https://blog.naver.com/act2lab/224341056946',
+    thumb: '/thumbs/2026-07-09_daehan.png' },
+  { date: '2026-07-09', cat: 'pick5', title: 'UN AI 규범 원년 · 코스피 사상 최대 폭락 · 앤스로픽-삼성 칩',
+    insta: 'https://www.instagram.com/reel/DajABPDtZTL/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DajAE-1k-N_',
+    blog: 'https://blog.naver.com/act2lab/224341026760',
+    thumb: '/thumbs/2026-07-09_pick5.png' },
+  { date: '2026-07-08', cat: 'pick5', title: '삼성 역대 최고 이익 · 이란 지정학 급변 · UN AI 규범 논의',
+    insta: 'https://www.instagram.com/reel/DagZxj-zi6t/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DagaDbSk49i',
+    blog: 'https://blog.naver.com/act2lab/224339893817',
+    thumb: '/thumbs/2026-07-08_pick5.png' },
+  { date: '2026-07-07', cat: 'digital', title: '7월 7일 화요일 브리핑 — AI·테크·플랫폼 흐름',
+    insta: 'https://www.instagram.com/reel/DaeBXNjtwo6/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaeBdzhE9Br',
+    blog: 'https://blog.naver.com/act2lab/224338818830',
+    thumb: '/thumbs/2026-07-07_digital.jpg' },
+  { date: '2026-07-07', cat: 'pick5', title: '나토 AI 동맹 균열 · 중국 GLM 5.2 추격 · 허위조작정보법 시행',
+    insta: 'https://www.instagram.com/reel/Dad6YDazpnj/',
+    threads: 'https://www.threads.com/@jooyongpa/post/Dad7YV3kwUk',
+    blog: 'https://blog.naver.com/act2lab/224338791590',
+    thumb: '/thumbs/2026-07-07_pick5.png' },
+  { date: '2026-07-06', cat: 'pick5', title: '미 고용 57,000명 충격 · USMCA 재편 · 클로드 사이언스',
+    insta: 'https://www.instagram.com/reel/DabTWyBzaSL/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DabToCDk9ed',
+    blog: 'https://blog.naver.com/act2lab/224337679818',
+    thumb: '/thumbs/2026-07-06_pick5.png' },
+  { date: '2026-07-04', cat: 'gompapa', title: '물가·환율·AI — 이번 주 담긴 것들',
+    insta: 'https://www.instagram.com/reel/DaWf8qIBjdv/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaWgUmdEwBb',
+    blog: 'https://blog.naver.com/act2lab/224336035346',
+    thumb: '/thumbs/2026-07-04_gompapa.jpg' },
+  { date: '2026-07-03', cat: 'pick5', title: '삼전·닉스 역대급 폭락 · MGX $490억 펀드 · 소넷5 출시',
+    insta: 'https://www.instagram.com/reel/DaTlE7DTmct/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaTk141k1BH',
+    blog: 'https://blog.naver.com/act2lab/224334981906',
+    thumb: '/thumbs/2026-07-03_pick5.png' },
+  { date: '2026-07-02', cat: 'daehan', title: 'AI 반도체가 수출을 끌어올리는 사이, 고물가·고환율·증시 조정이 동시에 온다',
+    insta: 'https://www.instagram.com/reel/DaRE_LItHeh/',
+    threads: 'https://www.threads.com/@jooyongpa/post/DaRL4QeE7Sf',
+    blog: '',
+    thumb: '/thumbs/2026-07-02_daehan.jpg' },
+  { date: '2026-07-02', cat: 'pick5',   title: '7월 2일 목요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-07-01', cat: 'pick5',   title: '7월 1일 수요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-30', cat: 'digital', title: '6월 30일 화요일 브리핑 — AI·테크·플랫폼 흐름', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-30', cat: 'pick5',   title: '6월 30일 화요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+  { date: '2026-06-29', cat: 'pick5',   title: '6월 29일 월요일 발행분', insta: '', threads: '', blog: '', thumb: '' },
+];
+
+const CATS = {
+  pick5:   { name: 'PICK 5',        bg: 'var(--pick5-bg)',   fg: 'var(--pick5-fg)',   mid: 'var(--pick5-mid)' },
+  digital: { name: '디지털 브리핑', bg: 'var(--digital-bg)', fg: 'var(--digital-fg)', mid: 'var(--digital-mid)' },
+  daehan:  { name: '대한 뉴스',     bg: 'var(--daehan-bg)',  fg: 'var(--daehan-fg)',  mid: 'var(--daehan-mid)' },
+  gompapa: { name: '이번 주도 수고했어', bg: 'var(--gompapa-bg)', fg: 'var(--gompapa-fg)', mid: 'var(--gompapa-mid)' },
+};
+const DAYS = ['일','월','화','수','목','금','토'];
+
+const todayISO = iso(new Date());
+// 같은 날짜면 코너(디지털·대한·곰파파)를 픽5보다 앞(리드)으로. 단 항목에 rank가 있으면 그 값을 우선(작별 카드뉴스 등 특례).
+const catRank = (p) => (typeof p.rank === 'number' ? p.rank : (p.cat === 'pick5' ? 1 : 0));
+const sorted = [...POSTS]
+  .filter(p => p.date <= todayISO                // 미래 날짜(예약 발행)는 그 날짜가 되기 전엔 숨김
+            && !(p.hideAfter && todayISO > p.hideAfter))  // hideAfter 지나면 숨김(작별 카드뉴스=토요일 하루만)
+  .sort((a, b) => a.date === b.date ? catRank(a) - catRank(b) : b.date.localeCompare(a.date));
+
+function mainLink(p) {
+  return p.insta || p.threads || p.blog || '';
+}
+/* 클릭 대상: 영상이 있으면 모달 재생, 없으면 외부 링크. <a> 안에 들어갈 속성 문자열 반환 */
+function openAttr(p) {
+  if (p.video) {
+    return `href="#" data-video="${p.video}" data-insta="${p.insta||''}" data-threads="${p.threads||''}" data-blog="${p.blog||''}"`;
+  }
+  if (mainLink(p)) return `href="${mainLink(p)}" target="_blank"`;
+  return '';
+}
+function fmt(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return `${d.getMonth() + 1}/${d.getDate()} ${DAYS[d.getDay()]}`;
+}
+function badge(cat, extra) {
+  const c = CATS[cat];
+  return `<span class="badge" style="background:${c.bg}; color:${c.fg};">${c.name}${extra || ''}</span>`;
+}
+function iso(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function weekNum(d) {
+  const start = new Date(d.getFullYear(), 0, 1);
+  return Math.ceil(((d - start) / 86400000 + start.getDay() + 1) / 7);
+}
+
+/* ── 제호 날짜줄 ── */
+(function () {
+  const now = new Date();
+  document.getElementById('dateline').textContent =
+    `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${DAYS[now.getDay()]}요일 · 제${weekNum(now)}주차`;
+})();
+
+/* ── 공지 배너 ──
+   NOTICE 비우면 안 보임. NOTICE_FROM~NOTICE_UNTIL(YYYY-MM-DD, 포함) 사이에만 표시되고
+   기간이 지나면 세션 없이도 자동으로 사라짐. 상시 공지는 두 날짜를 '' 로 두면 됨. */
+const NOTICE = '📰 <b>가을 개편 안내</b> — <b>10월 26일(월)</b>부터 「주용파의 오늘도 수고했어」가 <b>평일 아침 7시 일간 신문</b>(토요일은 낮 12시 주말판)으로 새로 찾아갑니다. 매일 아침 그날의 주요 뉴스와 주용파의 한마디, 「주용파의 1분 브리핑」 영상을 전하고, 토요일엔 곰파파의 주말 편지가 담긴 <b>주말판</b>이 나옵니다. PICK 5·디지털 브리핑·대한뉴스는 이번 주가 마지막이며, 지난 호는 새 신문의 ‘지난 신문’에서 그대로 보실 수 있어요.';
+const NOTICE_FROM  = '2026-10-20';
+const NOTICE_UNTIL = '2026-10-24';
+(function () {
+  const el = document.getElementById('notice');
+  const t = iso(new Date());
+  const inRange = (!NOTICE_FROM || t >= NOTICE_FROM) && (!NOTICE_UNTIL || t <= NOTICE_UNTIL);
+  if (NOTICE && NOTICE.trim() && inRange) {
+    el.className = 'notice-bar';
+    el.innerHTML = `<div class="t">${NOTICE}</div>`;
+  }
+})();
+
+/* ── 1면 ── */
+(function () {
+  const lead = sorted[0];
+  const seen = new Set([lead.cat]);
+  const side = [];
+  for (const p of sorted.slice(1)) {
+    if (!seen.has(p.cat)) { side.push(p); seen.add(p.cat); }
+    if (side.length >= 3) break;
+  }
+  const linkOpen = (p) => `<a ${openAttr(p)}>`;
+  const thumbBox = (p, cls) => {
+    const c = CATS[p.cat];
+    const ph = `<div class="ph" style="background:${c.bg}; color:${c.mid};"><span class="tri">▶</span><span class="nm">${c.name}</span></div>`;
+    if (p.thumb) {
+      const play = (cls === 'thumb-big' && (p.video || mainLink(p))) ? '<div class="play">▶</div>' : '';
+      const fitStyle = p.fit === 'contain' ? ' object-fit:contain;' : ''; // 세로 포스터(추석 인사)는 전체가 보이게
+      return `<div class="thumb ${cls}">${ph}<img src="${p.thumb}" alt="${c.name} 표지" style="position:absolute; inset:0;${fitStyle}" onerror="this.nextElementSibling && this.nextElementSibling.remove(); this.remove();">${play}</div>`;
+    }
+    return `<div class="thumb ${cls}">${ph}</div>`;
+  };
+  document.getElementById('lead').innerHTML = `
+    <div>
+      ${badge(lead.cat, ' · ' + fmt(lead.date))}
+      ${linkOpen(lead)}
+        ${thumbBox(lead, 'thumb-big')}
+        <div class="headline">${lead.title}</div>
+      </a>
+    </div>
+    <div class="side">
+      ${side.map(p => `
+        <div class="item">
+          ${linkOpen(p)}
+            ${thumbBox(p, 'thumb-sm')}
+            <div>
+              <div class="cat-line" style="color:${CATS[p.cat].mid};">${CATS[p.cat].name} · ${fmt(p.date)}</div>
+              <div class="t">${p.title}</div>
+            </div>
+          </a>
+        </div>`).join('')}
+    </div>`;
+})();
+
+/* ── 지난 호 ── */
+let filterCat = 'all';
+(function () {
+  const chips = document.getElementById('chips');
+  chips.innerHTML = `<button class="on" data-cat="all">전체</button>` +
+    Object.entries(CATS).map(([k, c]) => `<button data-cat="${k}">${c.name}</button>`).join('');
+  chips.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
+    chips.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+    e.target.classList.add('on');
+    filterCat = e.target.dataset.cat;
+    renderArchive();
+  });
+  document.getElementById('search').addEventListener('input', renderArchive);
+})();
+
+function renderArchive() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const list = sorted.filter(p =>
+    (filterCat === 'all' || p.cat === filterCat) &&
+    (!q || p.title.toLowerCase().includes(q)));
+  const el = document.getElementById('archive-list');
+  if (!list.length) { el.innerHTML = `<div class="empty">해당하는 발행물이 없습니다.</div>`; return; }
+
+  const byMonth = {};
+  list.forEach(p => {
+    const key = p.date.slice(0, 7);
+    (byMonth[key] = byMonth[key] || []).push(p);
+  });
+  el.innerHTML = Object.entries(byMonth).map(([m, posts]) => `
+    <div class="month-label">${m.slice(0, 4)}년 ${parseInt(m.slice(5))}월 · ${posts.length}건</div>
+    <div class="rows">
+      ${posts.map(p => `
+        <a class="row" ${openAttr(p)}>
+          ${p.thumb ? `<img class="mini" src="${p.thumb}" alt="" onerror="this.remove()">` : ''}
+          ${badge(p.cat)}
+          <span class="title">${p.title}</span>
+          <span class="date">${fmt(p.date)}</span>
+          ${(p.video || mainLink(p)) ? `<span class="arrow">${p.video ? '▶' : '↗'}</span>` : ''}
+        </a>`).join('')}
+    </div>`).join('');
+}
+renderArchive();
+
+/* ── 발행 캘린더 ── */
+(function () {
+  const byWeek = {};
+  sorted.forEach(p => {
+    const d = new Date(p.date + 'T00:00:00');
+    const mon = new Date(d);
+    mon.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    const key = iso(mon);
+    (byWeek[key] = byWeek[key] || []).push(p);
+  });
+  const weeks = Object.keys(byWeek).sort().reverse();
+  document.getElementById('calendar').innerHTML = weeks.map(wk => {
+    const mon = new Date(wk + 'T00:00:00');
+    const sat = new Date(mon); sat.setDate(mon.getDate() + 5);
+    const posts = byWeek[wk];
+    const cells = [];
+    for (let i = 0; i < 6; i++) {
+      const day = new Date(mon); day.setDate(mon.getDate() + i);
+      const ds = iso(day);
+      const items = posts.filter(p => p.date === ds);
+      cells.push(`
+        <div class="day">
+          <div class="dh">${DAYS[day.getDay()]} ${day.getDate()}</div>
+          ${items.map(p => (p.video || mainLink(p))
+            ? `<a class="tag" ${openAttr(p)} title="${p.title}" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name} ${p.video ? '▶' : '↗'}</a>`
+            : `<div class="tag" style="background:${CATS[p.cat].bg}; color:${CATS[p.cat].fg};">${CATS[p.cat].name}</div>`).join('')}
+        </div>`);
+    }
+    return `
+      <div class="week-block">
+        <div class="week-head">
+          <span class="wk">${mon.getMonth() + 1}월 ${mon.getDate()}일 – ${sat.getMonth() + 1}월 ${sat.getDate()}일 (제${weekNum(mon)}주차)</span>
+          <span class="cnt">발행 ${posts.length}건</span>
+        </div>
+        <div class="grid6">${cells.join('')}</div>
+      </div>`;
+  }).join('');
+})();
+
+/* ── 탭 전환 ── */
+document.querySelector('nav').addEventListener('click', (e) => {
+  if (e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('on'));
+  e.target.classList.add('on');
+  const v = e.target.dataset.view;
+  document.getElementById('view-front').classList.toggle('hidden', v !== 'front');
+  document.getElementById('view-archive').classList.toggle('hidden', v !== 'archive');
+  document.getElementById('calendar').classList.toggle('hidden', v !== 'calendar');
+});
+
+/* ── 영상 모달 ── */
+function openVmod(src, links) {
+  const el = document.getElementById('vmod');
+  document.getElementById('vmod-v').src = src;
+  const linksEl = document.getElementById('vmod-links');
+  linksEl.innerHTML = [['인스타그램', links.insta], ['스레드', links.threads], ['블로그', links.blog]]
+    .filter(([, u]) => u)
+    .map(([n, u]) => `<a href="${u}" target="_blank">${n} ↗</a>`)
+    .join('');
+  el.classList.add('open');
+  document.getElementById('vmod-v').play();
+}
+function closeVmod() {
+  const v = document.getElementById('vmod-v');
+  v.pause(); v.src = '';
+  document.getElementById('vmod').classList.remove('open');
+}
+document.getElementById('vmod').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('vmod')) closeVmod();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVmod(); });
+/* 영상 썸네일/행 클릭 → 모달 재생 (위임) */
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-video]');
+  if (!a) return;
+  e.preventDefault();
+  openVmod(a.dataset.video, { insta: a.dataset.insta, threads: a.dataset.threads, blog: a.dataset.blog });
+});
+/* ── 날짜로 바로 열기 (2026-10-20 기획실) — 새 신문 '지난 신문'에서 ?post=YYYY-MM-DD_cat 로 연결 ──
+   영상 있는 호는 영상 창, 없으면 그 호의 SNS/블로그 링크, 그것도 없으면 표지 이미지로 */
+(function () {
+  const q = new URLSearchParams(location.search).get('post');
+  if (!q) return;
+  const [d, c] = q.split('_');
+  const p = POSTS.find(x => x.date === d && (!c || x.cat === c));
+  if (!p) return;
+  if (p.video) { openVmod(p.video, { insta: p.insta, threads: p.threads, blog: p.blog }); return; }
+  const link = mainLink(p);
+  if (link) { location.replace(link); return; }
+  if (p.thumb) location.replace(p.thumb);
+})();
+</script>
+</body>
+</html>
