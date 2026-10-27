@@ -10,52 +10,80 @@
 :root{--paper:#f5f1e6;--ink:#2a251e;--soft:#6b6256;--line:#d9cfbd;--teal:#26687f;--good:#1d9e75;--card:#fffdf7}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif}
-header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
 .brand{font-weight:800;letter-spacing:.18em;font-size:15px;color:var(--teal)}
 .brand small{display:block;letter-spacing:.02em;font-weight:600;color:var(--soft);font-size:12px;margin-top:2px}
 .now{margin-left:auto;font-size:13px;color:var(--soft)}.now b{color:var(--ink);font-variant-numeric:tabular-nums}
-header a{font-size:13px;font-weight:700;color:#fff;background:var(--teal);padding:6px 12px;border-radius:999px;text-decoration:none}
+.hb{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink);text-decoration:none}
+.hb.go{color:#fff;background:var(--teal);border-color:var(--teal)}
 main{max-width:1400px;margin:0 auto;padding:16px 20px 28px}
 .lede{margin:0 0 12px;font-size:14px;color:var(--soft);line-height:1.6}
 .stage{position:relative;width:100%;aspect-ratio:1652/897;container-type:size;background:#f4f3ef;border:1px solid var(--line);border-radius:14px;overflow:hidden;--ch:11cqh}
 .fl{position:absolute;inset:0;background-size:100% 100%;pointer-events:none;transition:filter 1.5s}.fl.base{z-index:0}.fl.occ{z-index:3}
 .stage.night .fl{filter:brightness(.87) saturate(.85)}
-.who{position:absolute;transform:translate(-50%,-100%);z-index:4;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.modebar{position:absolute;left:10px;top:8px;z-index:6;background:rgba(255,253,247,.95);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:12px;font-weight:700;display:none}
+.who{position:absolute;transform:translate(-50%,-100%);z-index:4;cursor:pointer;display:flex;flex-direction:column;align-items:center;transition:opacity .6s}
 .who.behind{z-index:2}
 .who img{height:var(--ch);width:auto;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.22));animation:bob 2.6s ease-in-out infinite}
 .who:nth-child(odd) img{animation-delay:-1.3s}
 .who .tag{margin-top:2px;background:rgba(255,253,247,.95);border:1px solid var(--line);border-radius:8px;padding:1px 7px;font-size:clamp(9px,1.1cqh,12px);font-weight:700;white-space:nowrap}
 .who.behind .tag{position:absolute;bottom:calc(100% + 2px);margin:0}
 .who.sel .tag{background:var(--teal);color:#fff;border-color:var(--teal)}
+.bub{position:absolute;bottom:100%;left:50%;transform:translate(-50%,-6px);background:#fff;border:1px solid var(--line);border-radius:10px;padding:3px 8px;font-size:clamp(9px,1.15cqh,12px);white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:5;opacity:0;transition:opacity .4s;pointer-events:none}
+.who.behind .bub{transform:translate(-50%,-26px)}
+.who.talk .bub{opacity:1}
+.mood{position:absolute;top:-4px;right:-10px;font-size:16px;display:none}.who.lunch .mood{display:block}
 .zzz{position:absolute;transform:translate(-50%,-100%);z-index:4;font-size:clamp(9px,1.1cqh,12px);font-weight:700;color:var(--soft);background:rgba(255,253,247,.8);border:1px dashed var(--line);border-radius:8px;padding:1px 6px;white-space:nowrap;cursor:pointer}
 @keyframes bob{50%{transform:translateY(-1.5px)}}
 .card{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;min-height:96px}
 .card img{height:76px;width:auto}.card b{font-size:17px}.card .r{font-size:12.5px;color:var(--soft);margin-top:2px}.card .d{font-size:13.5px;margin-top:6px}
+.card .q{font-size:13.5px;margin-top:6px;color:var(--teal);font-weight:700}
 .card .st{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;margin-left:6px;background:rgba(0,0,0,.06);color:var(--soft);vertical-align:2px}
 .card .st.on{background:rgba(29,158,117,.14);color:var(--good)}
 .crew{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:16px}
 .crew button{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fffaf0}
 .crew button img{height:60px;width:auto}.crew b{display:block;font-size:13px;margin-top:4px}.crew span{font-size:11.5px;color:var(--soft)}
+.guide{position:fixed;inset:0;background:rgba(30,25,18,.4);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.guide.open{display:flex}
+.guide .p{background:#fff;border-radius:18px;padding:22px 26px;max-width:760px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.guide h2{margin:0;font-size:20px}.guide .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.guide ul{margin:0;padding-left:20px;line-height:1.9;font-size:15px}
+.guide button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 12px;font-size:14px;cursor:pointer}
 footer{max-width:1400px;margin:0 auto;padding:0 20px 24px;font-size:12px;color:var(--soft)}
 footer a{color:var(--soft)}
-@media (max-width:700px){header{padding:12px 16px}main{padding:12px 16px 24px}.now{margin-left:0;width:100%}.who .tag{display:none}.who.sel .tag{display:block}.zzz{font-size:0;padding:0 2px;border:0;background:none}.zzz::first-letter{font-size:10px}}  /* 폰: 그림이 작아 이름표는 누른 크루만 */
+@media (max-width:700px){header{padding:12px 16px}main{padding:12px 16px 24px}.now{margin-left:0;width:100%}
+  .who .tag{display:none}.who.sel .tag{display:block}.zzz{font-size:0;padding:0 2px;border:0;background:none}.zzz::first-letter{font-size:10px}
+  .bub{font-size:9px;padding:2px 5px}}  /* 폰: 그림이 작아 이름표는 누른 크루만 */
 </style>
 </head>
 <body>
 <header>
   <div class="brand">HEALING MIND STUDIO<small>H.M 스튜디오 · 방문객 라운지</small></div>
   <div class="now">한국 시각 <b id="clock">--:--</b> · <span id="cnt"></span></div>
-  <a href="/">오늘 신문 보기 →</a>
+  <button class="hb" id="b-guide">📋 안내</button>
+  <button class="hb" id="b-snd" title="효과음 켜기/끄기">🔊</button>
+  <a class="hb go" href="/">오늘 신문 보기 →</a>
 </header>
 <main>
-  <p class="lede">「주용파의 오늘도 수고했어」를 만드는 AI 크루들의 사무실입니다. 크루들은 실제 근무 시간(한국 시각)에 맞춰 출근하고 퇴근해요. 캐릭터를 누르면 누가 무슨 일을 하는지 볼 수 있습니다.</p>
-  <div class="stage" id="stage"></div>
+  <p class="lede">「주용파의 오늘도 수고했어」를 만드는 AI 크루들의 사무실입니다. 크루들은 실제 근무 시간(한국 시각)에 맞춰 출근하고 퇴근해요. 캐릭터를 누르면 인사하고 지금 하는 일을 알려 줍니다.</p>
+  <div class="stage" id="stage"><div class="modebar" id="modebar"></div></div>
   <div class="card" id="card"><div style="color:var(--soft);font-size:14px">캐릭터를 누르면 크루를 소개해 드려요.</div></div>
   <div class="crew" id="crew"></div>
 </main>
+<div class="guide" id="guide"><div class="p">
+  <div class="hd"><h2>방문객 안내</h2><button id="g-x">닫기 ✕</button></div>
+  <ul>
+    <li>크루를 누르면 인사하고, 평소 이 시간에 하는 일을 알려 줍니다.</li>
+    <li>크루들은 한국 시각 근무표대로 출근·퇴근해요. 퇴근한 자리에는 💤가 떠 있습니다.</li>
+    <li>가끔 복도를 지나 라운지나 회의실에 다녀오고, 낮 12시~1시엔 점심을 먹으러 모입니다 🍙</li>
+    <li>위쪽 "오늘 신문 보기"로 우리 신문을 볼 수 있어요. 아래 크루 카드로 전체 크루를 볼 수 있습니다.</li>
+    <li>🔊 버튼으로 효과음을 끌 수 있습니다.</li>
+    <li>이 화면은 견학용이라 실제 사무실 현황과 조금 다를 수 있어요. 하는 일은 실시간이 아니라 평소 일과표를 보여 드립니다.</li>
+  </ul>
+</div></div>
 <footer>※ 본 콘텐츠는 AI를 활용하여 작성되었습니다. · Healing Mind Studio · <a href="old.html">예전 방문객 라운지</a></footer>
 <script>
-const D = {"crop": [0.6, 4.2, 99.4, 99.6], "seats": {"jooyongpa": [86.2, 64.3], "hedi": [28.2, 56.6], "kkoki": [75.3, 51.5], "turtle": [72.8, 87.6], "bucky": [53, 73.5], "keul": [54.6, 36.9], "rabbit": [27.6, 26.3], "gompapa": [63, 81.5], "codex": [39.3, 28.8], "agy": [44.4, 30.6], "junior_1": [9.6, 41.8], "junior_2": [16.3, 44.6], "junior_3": [19.3, 41.2]}, "behind": ["rabbit", "jooyongpa", "codex", "agy", "keul"], "occ": [[[24.0, 19.3], [24.9, 16.8], [25.3, 18.3], [26.1, 21.1], [27.6, 22.2], [29.0, 23.2], [29.4, 23.9], [29.4, 28.7], [28.5, 30.0], [27.0, 29.2], [25.3, 28.0], [24.2, 26.4], [24.0, 24.6]], [[81.6, 59.0], [84.2, 58.0], [85.0, 58.3], [85.0, 60.9], [87.6, 60.9], [87.6, 58.5], [89.7, 60.9], [90.2, 63.1], [90.0, 66.9], [88.9, 68.2], [86.6, 68.4], [84.2, 67.3], [82.4, 65.6], [81.7, 63.9], [81.5, 60.5]], [[38.3, 27.2], [39.0, 25.9], [45.2, 29.1], [45.8, 29.9], [44.3, 31.2], [38.9, 30.1]], [[51.4, 33.9], [60.0, 36.1], [59.9, 36.6], [58.4, 40.4], [51.8, 37.3]]], "staff": [{"ids": ["jooyongpa"], "name": "주용파님", "role": "논설 · 앵커", "desc": "매일 사설 주용파의 한마디 · 1분 브리핑"}, {"ids": ["gompapa"], "name": "곰파파님", "role": "고문 · 주말 편지", "desc": "토요일 이번 주도 수고했어 · 곰파파의 한마디"}, {"ids": ["keul"], "name": "클님", "role": "총괄 관제", "desc": "스튜디오 전체 살피기"}, {"ids": ["turtle"], "name": "터틀님", "role": "편집 담당", "desc": "새벽 기사 고르기 · 원문 대조 교열"}, {"ids": ["kkoki"], "name": "꼬끼님", "role": "발행 알림", "desc": "신문 나가면 종 울리기"}, {"ids": ["hedi"], "name": "헤디님", "role": "메일 매니저", "desc": "독자 메일 살피기"}, {"ids": ["rabbit"], "name": "바니님", "role": "비서실장", "desc": "아침 보고서 · 결재함"}, {"ids": ["bucky"], "name": "버키님", "role": "자동화 정비", "desc": "매일 자동화 점검"}, {"ids": ["codex"], "name": "지피님", "role": "GPT 크루", "desc": "교차검증 · 이미지"}, {"ids": ["agy"], "name": "제미·니니님", "role": "Gemini 크루", "desc": "교차검증 · 이미지 · 구글 드라이브 관리"}, {"ids": ["junior_1", "junior_2", "junior_3"], "name": "햄쥐1·2·3님", "role": "신입 크루", "desc": "어느 부서든 출동하는 보조"}], "shifts": {"jooyongpa": {"start": 6.0, "end": 16.0, "days": [1, 2, 3, 4, 5, 6], "sat": [6.0, 13.0]}, "hedi": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "gompapa": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "bucky": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "kkoki": {"start": 6.0, "end": 14.0, "days": [1, 2, 3, 4, 5, 6]}, "rabbit": {"start": 8.5, "end": 17.5, "days": [1, 2, 3, 4, 5, 6]}, "turtle": {"start": 5.5, "end": 12.5, "days": [1, 2, 3, 4, 5, 6]}, "junior_1": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}, "junior_2": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}, "junior_3": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}}};
+const D = {"crop": [0.6, 4.2, 99.4, 99.6], "seats": {"jooyongpa": [86.2, 64.3], "hedi": [28.2, 56.6], "kkoki": [75.3, 51.5], "turtle": [72.8, 87.6], "bucky": [53, 73.5], "keul": [54.6, 36.9], "rabbit": [27.6, 26.3], "gompapa": [63, 81.5], "codex": [39.3, 28.8], "agy": [44.4, 30.6], "junior_1": [9.6, 41.8], "junior_2": [16.3, 44.6], "junior_3": [19.3, 41.2]}, "behind": ["rabbit", "jooyongpa", "codex", "agy", "keul"], "occ": [[[24.0, 19.3], [24.9, 16.8], [25.3, 18.3], [26.1, 21.1], [27.6, 22.2], [29.0, 23.2], [29.4, 23.9], [29.4, 28.7], [28.5, 30.0], [27.0, 29.2], [25.3, 28.0], [24.2, 26.4], [24.0, 24.6]], [[81.6, 59.0], [84.2, 58.0], [85.0, 58.3], [85.0, 60.9], [87.6, 60.9], [87.6, 58.5], [89.7, 60.9], [90.2, 63.1], [90.0, 66.9], [88.9, 68.2], [86.6, 68.4], [84.2, 67.3], [82.4, 65.6], [81.7, 63.9], [81.5, 60.5]], [[38.3, 27.2], [39.0, 25.9], [45.2, 29.1], [45.8, 29.9], [44.3, 31.2], [38.9, 30.1]], [[51.4, 33.9], [60.0, 36.1], [59.9, 36.6], [58.4, 40.4], [51.8, 37.3]]], "staff": [{"ids": ["jooyongpa"], "name": "주용파님", "role": "논설 · 앵커", "desc": "매일 사설 주용파의 한마디 · 1분 브리핑"}, {"ids": ["gompapa"], "name": "곰파파님", "role": "고문 · 주말 편지", "desc": "토요일 이번 주도 수고했어 · 곰파파의 한마디"}, {"ids": ["keul"], "name": "클님", "role": "총괄 관제", "desc": "스튜디오 전체 살피기"}, {"ids": ["turtle"], "name": "터틀님", "role": "편집 담당", "desc": "새벽 기사 고르기 · 원문 대조 교열"}, {"ids": ["kkoki"], "name": "꼬끼님", "role": "발행 알림", "desc": "신문 나가면 종 울리기"}, {"ids": ["hedi"], "name": "헤디님", "role": "메일 매니저", "desc": "독자 메일 살피기"}, {"ids": ["rabbit"], "name": "바니님", "role": "비서실장", "desc": "아침 보고서 · 결재함"}, {"ids": ["bucky"], "name": "버키님", "role": "자동화 정비", "desc": "매일 자동화 점검"}, {"ids": ["codex"], "name": "지피님", "role": "GPT 크루", "desc": "교차검증 · 이미지"}, {"ids": ["agy"], "name": "제미·니니님", "role": "Gemini 크루", "desc": "교차검증 · 이미지 · 구글 드라이브 관리"}, {"ids": ["junior_1", "junior_2", "junior_3"], "name": "햄쥐1·2·3님", "role": "신입 크루", "desc": "어느 부서든 출동하는 보조"}], "shifts": {"jooyongpa": {"start": 6.0, "end": 16.0, "days": [1, 2, 3, 4, 5, 6], "sat": [6.0, 13.0]}, "hedi": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "gompapa": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "bucky": {"start": 9.0, "end": 17.0, "days": [1, 2, 3, 4, 5, 6]}, "kkoki": {"start": 6.0, "end": 14.0, "days": [1, 2, 3, 4, 5, 6]}, "rabbit": {"start": 8.5, "end": 17.5, "days": [1, 2, 3, 4, 5, 6]}, "turtle": {"start": 5.5, "end": 12.5, "days": [1, 2, 3, 4, 5, 6]}, "junior_1": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}, "junior_2": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}, "junior_3": {"start": 9.0, "end": 18.0, "days": [1, 2, 3, 4, 5, 6]}}, "path": [[23.5, 40.5], [27.5, 37], [32, 39.6], [37, 42.6], [42.5, 45.6], [48, 49], [53.5, 52.2], [59, 55.5], [64.5, 58.8], [70, 61.8], [76, 63.5]], "lunch": [[9.6, 41.8], [16.3, 44.6], [19.3, 41.2], [13, 45.5], [58.9, 38.6, 1], [53.5, 43], [56.5, 44.6], [59.3, 46.3], [50.6, 37.2], [61.2, 42.5]], "spots": {"ceo": [[70, 50]], "door": [[62.5, 56.3], [66.5, 58.5], [58.5, 53.6], [70.5, 60.5]], "onair": [[80, 74], [84, 76]], "dev": [[53, 73.5], [56.5, 71]], "advisor": [[63, 81.5]], "meeting": [[53.5, 43], [56.5, 44.6], [59.3, 46.3]], "news": [[28.2, 56.6], [32.9, 58.8], [36.5, 55.5]], "lobby": [[31, 31.5], [33.5, 33]], "booth": [[39.3, 28.8], [44.4, 30.6]], "music": [[44, 63.5], [47, 65.5]], "corridor": [[37, 42.6], [48, 49], [59, 55.5], [32, 39.6], [53.5, 52.2]], "studio": [[44, 63.5], [51.5, 76], [74, 88], [47, 66]], "lounge": [[9.6, 41.8], [16.3, 44.6], [19.3, 41.2], [13, 45.5]]}};
 const stage = document.getElementById('stage');
 const C = D.crop, P = ([x,y]) => [(x-C[0])/(C[2]-C[0])*100, (y-C[1])/(C[3]-C[1])*100];
 stage.style.setProperty('--ch', (10.5*100/(C[3]-C[1])).toFixed(2)+'cqh');
@@ -66,42 +94,164 @@ D.occ.forEach(poly=>{const o=document.createElement('div'); o.className='fl occ'
 const BEHIND = new Set(D.behind);
 const PEOPLE = [];
 D.staff.forEach(s => s.ids.forEach((id,i) => PEOPLE.push({id, staff:s, name: s.ids.length>1 ? `햄쥐${i+1}` : s.name.replace(/님$/,'')+'님'})));
+const EXTERNAL = new Set(['codex','agy']);
+
+/* ---- 한국 시각·근무 ---- */
 function kst(){ const n=new Date(); return new Date(n.getTime() + (n.getTimezoneOffset()+540)*60000); }
+function hr(t){ return t.getHours()+t.getMinutes()/60; }
 function onDuty(id, t){
   const sh = D.shifts[id]; if(!sh) return true;            // 명부 밖(클님·지피·제미니) = 24시간
   const dow = t.getDay(); if(!sh.days.includes(dow)) return false;
-  const h = t.getHours() + t.getMinutes()/60;
   const [a,b] = (dow===6 && sh.sat) ? sh.sat : [sh.start, sh.end];
-  return a <= h && h < b;
+  return a <= hr(t) && hr(t) < b;
 }
+const lunchNow = t => t.getDay()>=1 && t.getDay()<=6 && t.getHours()===12;
+
+/* ---- 평소 일과(실시간 아님 — 근무표·발행 시간 기준) ---- */
+function act(id, t){
+  const h=hr(t), sat=t.getDay()===6;
+  if(lunchNow(t) && !EXTERNAL.has(id) && id!=='keul') return '점심 먹는 중 🍙';
+  switch(id){
+    case 'jooyongpa': return sat ? (h<12?'주말판 준비 중':'주말판 나갔어요') : (h<7?'오늘 1분 브리핑 준비 중':h<9?'오늘 신문 사설 다시 읽는 중':'내일 뉴스 살피는 중');
+    case 'turtle': return h<6.3?'새벽 기사 고르는 중':h<7?'원문 대조 교열 중':'기사 후보 정리 중';
+    case 'kkoki': return ((!sat&&h>=6.8&&h<7.2)||(sat&&h>=11.8&&h<12.2))?'신문 나갑니다! 종 울리는 중 🔔':'대표실에서 발행 대기 중';
+    case 'hedi': return '독자 메일 살피는 중 ✉️';
+    case 'rabbit': return h<9.2?'아침 보고서 쓰는 중':'로비 안내 중';
+    case 'bucky': return h<9.5?'아침 자동화 점검 중':'자동화 정비 중 🔧';
+    case 'gompapa': return sat ? (h<12?'주말 편지 쓰는 중':'주말 편지 나갔어요') : '이번 주 이야기 모으는 중';
+    case 'keul': return '스튜디오 전체 살피는 중';
+    case 'codex': return '교차검증 대기 중';
+    case 'agy': return '구글 드라이브 정리 중';
+    default: return '심부름 대기 중';
+  }
+}
+const HELLO = {
+  jooyongpa:['안녕하세요, 주용파입니다. 오늘 신문 보셨어요?','뉴스는 제가 챙깁니다.'],
+  gompapa:['어서 와요. 한 주 수고 많았어요.','토요일 주말 편지, 꼭 읽어 주세요.'],
+  keul:['여덟 개 팔이면 이 정도는 기본이죠.','반가워요, 총괄 클님입니다.'],
+  turtle:['천천히, 하지만 정확하게!','새벽마다 기사를 고르고 있어요.'],
+  kkoki:['꼬끼오! 신문 나가면 제가 알려 드려요.','아침이 밝았습니다!'],
+  hedi:['받은편지함은 제가 지켜요.','독자 편지는 언제나 반가워요.'],
+  rabbit:['어서 오세요, H.M 스튜디오입니다!','편하게 둘러보세요.'],
+  bucky:['시스템 이상 없습니다.','자동화는 제가 정비해요.'],
+  codex:['교차검증은 맡겨 주세요!','다른 시각이 필요하면 불러 주세요.'],
+  agy:['둘이라 두 배로 꼼꼼해요.','드라이브 정리 중이에요.'],
+  junior_1:['신입 햄쥐1입니다!','어느 부서든 출동해요.'], junior_2:['공구는 제게 맡겨요!','신입 햄쥐2입니다.'], junior_3:['메모는 제가 할게요.','신입 햄쥐3입니다.'],
+};
+
+/* ---- 걷기(빌딩과 같은 복도 길) ---- */
+const AR = 1652/897, SPEED = 9;
+const dist = (a,b) => Math.hypot((a[0]-b[0])*AR, a[1]-b[1]);
+const near = pt => D.path.reduce((bi,q,i)=>dist(q,pt)<dist(D.path[bi],pt)?i:bi, 0);
+function route(a,b){
+  if(dist(a,b) < 9) return [b];
+  const i=near(a), j=near(b), out=[], step=i<=j?1:-1;
+  for(let k=i; k!==j+step; k+=step) out.push(D.path[k]);
+  if(out.length && dist(a,out[0]) < 2) out.shift();
+  out.push(b); return out;
+}
+function setPos(el,pt){const [x,y]=P(pt); el.style.left=x+'%'; el.style.top=y+'%';}
+function walk(el){
+  clearTimeout(el._t); if(!el._q.length) return;
+  const nx=el._q.shift(), dur=Math.max(.35, dist(el._pos,nx)/SPEED);
+  el.style.transition=`left ${dur}s linear, top ${dur}s linear, opacity .6s`; setPos(el,nx); el._pos=nx;
+  el._t=setTimeout(()=>walk(el), dur*1000);
+}
+function moveTo(el,pt){
+  if(el._goal && el._goal[0]===pt[0] && el._goal[1]===pt[1]) return; el._goal=pt;
+  if(!el._pos){ el.style.transition='opacity .6s'; setPos(el,pt); el._pos=pt; el._q=[]; return; }
+  el._q=route(el._pos,pt); walk(el);
+}
+
+/* ---- 그리기 ---- */
+const trip = {};     // 잠깐 다녀오기 {id: {pt, until}}
 let sel = null;
-function show(p){
-  sel = p.id; const t = kst(), on = onDuty(p.id, t);
-  document.getElementById('card').innerHTML = `<img src="assets/${p.id}.png" alt=""><div><b>${p.name}</b><span class="st ${on?'on':''}">${on?'근무 중':'퇴근'}</span>
-    <div class="r">${p.staff.role}</div><div class="d">${p.staff.desc}</div></div>`;
-  draw();
-}
 function draw(){
-  const t = kst(); let n = 0;
+  const t = kst(); let n = 0, li = 0;
   document.getElementById('clock').textContent = t.toTimeString().slice(0,5);
   stage.classList.toggle('night', t.getHours()>=19 || t.getHours()<6);
-  stage.querySelectorAll('.who,.zzz').forEach(e=>e.remove());
+  const lunch = lunchNow(t), mb=document.getElementById('modebar');
+  mb.style.display = lunch ? 'block' : 'none'; mb.textContent = '🍙 점심시간 12:00–13:00';
   PEOPLE.forEach(p => {
     const seat = D.seats[p.id]; if(!seat) return;
-    const [x,y] = P(seat), on = onDuty(p.id, t);
-    const el = document.createElement('div');
-    if(on){ n++;
-      el.className = 'who' + (BEHIND.has(p.id)?' behind':'') + (sel===p.id?' sel':'');
-      el.innerHTML = `<img src="assets/${p.id}.png" alt="${p.name}"><div class="tag">${p.name}</div>`;
-    } else { el.className = 'zzz'; el.textContent = '💤 ' + p.name; }
-    el.style.left = x+'%'; el.style.top = y+'%'; el.onclick = () => show(p);
-    stage.appendChild(el);
+    const on = onDuty(p.id, t);
+    let el = document.getElementById('v-'+p.id), z = document.getElementById('z-'+p.id);
+    if(!on){
+      if(el) el.remove();
+      if(!z){ z=document.createElement('div'); z.id='z-'+p.id; z.className='zzz'; z.textContent='💤 '+p.name; z.onclick=()=>show(p); stage.appendChild(z); }
+      const [x,y]=P(seat); z.style.left=x+'%'; z.style.top=y+'%'; return;
+    }
+    if(z) z.remove(); n++;
+    if(!el){ el=document.createElement('div'); el.id='v-'+p.id;
+      el.innerHTML=`<div class="bub"></div><span class="mood">🍙</span><img src="assets/${p.id}.png" alt="${p.name}"><div class="tag">${p.name}</div>`;
+      el.onclick=()=>{ show(p); talk(p, HELLO[p.id][(el._c=(el._c||0)+1)%2]); sound(p.id); }; stage.appendChild(el); }
+    let pt = seat, atSeat = true;
+    if(lunch && !EXTERNAL.has(p.id) && p.id!=='keul'){ const g=D.lunch[li++ % D.lunch.length]; pt=[g[0],g[1]]; atSeat=false; }
+    else if(trip[p.id] && trip[p.id].until > Date.now()){ pt = trip[p.id].pt; atSeat=false; }
+    el.className = 'who' + (atSeat && BEHIND.has(p.id) ? ' behind' : '') + (lunch&&!atSeat?' lunch':'') + (sel===p.id?' sel':'') + (el.classList.contains('talk')?' talk':'');
+    moveTo(el, pt);
   });
   document.getElementById('cnt').textContent = `지금 ${n}명 근무 중`;
 }
+function talk(p, text, ms=5000){
+  const el=document.getElementById('v-'+p.id); if(!el) return;
+  el.querySelector('.bub').textContent=text; el.classList.add('talk');
+  clearTimeout(el._b); el._b=setTimeout(()=>el.classList.remove('talk'), ms);
+}
+function show(p){
+  sel = p.id; const t=kst(), on=onDuty(p.id, t);
+  document.getElementById('card').innerHTML = `<img src="assets/${p.id}.png" alt=""><div><b>${p.name}</b><span class="st ${on?'on':''}">${on?'근무 중':'퇴근'}</span>
+    <div class="r">${p.staff.role}</div><div class="d">${p.staff.desc}</div>${on?`<div class="q">지금: ${act(p.id,t)}</div>`:''}</div>`;
+  draw();
+}
+/* 가끔 한 명씩 복도를 지나 라운지·회의실에 다녀옴 / 햄쥐는 어슬렁 */
+const TRIP = ['lounge','meeting','corridor'];
+setInterval(()=>{
+  const t=kst(); if(lunchNow(t)) return;
+  const c=PEOPLE.filter(p=>onDuty(p.id,t) && !/^junior_/.test(p.id) && !['keul','rabbit'].includes(p.id));
+  if(!c.length) return; const p=c[Math.floor(Math.random()*c.length)], room=TRIP[Math.floor(Math.random()*TRIP.length)];
+  const sp=D.spots[room]; trip[p.id]={pt: sp[Math.floor(Math.random()*sp.length)].slice(0,2), until: Date.now()+20000};
+  draw(); setTimeout(draw, 20500);
+}, 35000);
+setInterval(()=>{
+  const t=kst(); if(lunchNow(t)) return;
+  PEOPLE.filter(p=>/^junior_/.test(p.id) && onDuty(p.id,t)).forEach(p=>{
+    if(Math.random()<0.5){ const r=D.path.slice(0,6).concat(D.lunch.slice(0,4)); trip[p.id]={pt:r[Math.floor(Math.random()*r.length)].slice(0,2), until:Date.now()+14000}; }});
+  draw();
+}, 15000);
+/* 말풍선: 9초마다 근무 중인 크루 두 명이 지금 하는 일을 보여 줌 */
+setInterval(()=>{
+  const t=kst(), c=PEOPLE.filter(p=>onDuty(p.id,t));
+  for(let k=0;k<2 && c.length;k++){ const p=c.splice(Math.floor(Math.random()*c.length),1)[0]; talk(p, act(p.id,t), 6000); }
+}, 9000);
+
+/* ---- 소리 ---- */
+let muted=false; try{ muted = localStorage.getItem('hmv-muted')==='1'; }catch(e){}
+const sb=document.getElementById('b-snd'); sb.textContent=muted?'🔇':'🔊';
+sb.onclick=()=>{ muted=!muted; sb.textContent=muted?'🔇':'🔊'; try{localStorage.setItem('hmv-muted',muted?'1':'0')}catch(e){} };
+let actx=null;
+function tone(f,st,du,type,gp,f2){ actx=actx||new (window.AudioContext||window.webkitAudioContext)(); const tt=actx.currentTime+st;
+  const o=actx.createOscillator(), g=actx.createGain(); o.type=type; o.frequency.setValueAtTime(f,tt); if(f2) o.frequency.exponentialRampToValueAtTime(f2,tt+du);
+  g.gain.setValueAtTime(.0001,tt); g.gain.exponentialRampToValueAtTime(gp,tt+.015); g.gain.exponentialRampToValueAtTime(.0001,tt+du);
+  o.connect(g); g.connect(actx.destination); o.start(tt); o.stop(tt+du+.02); }
+const SOUNDS = {
+  jooyongpa:()=>tone(880,0,.1,'sine',.18), gompapa:()=>tone(260,0,.16,'sine',.16), hedi:()=>tone(520,0,.24,'sine',.16,340),
+  keul:()=>tone(220,0,.18,'triangle',.16,440), kkoki:()=>{tone(784,0,.09,'square',.1);tone(1046,.08,.13,'sawtooth',.09)},
+  bucky:()=>{tone(300,0,.1,'square',.14);tone(240,.09,.12,'square',.13)}, rabbit:()=>tone(700,0,.12,'sine',.15,1200),
+  turtle:()=>{tone(180,0,.2,'sine',.16);tone(200,.18,.2,'sine',.14)}, codex:()=>{tone(1500,0,.06,'square',.08,2100);tone(1700,.08,.07,'square',.08,2300)},
+  agy:()=>{tone(900,0,.07,'triangle',.14);tone(950,.1,.07,'triangle',.14)},
+};
+function sound(id){ if(muted) return; try{ (SOUNDS[id]||(()=>tone(1300,0,.08,'sine',.12,1700)))(); }catch(e){} }
+
+/* ---- 안내·크루 카드 ---- */
+const guide=document.getElementById('guide');
+document.getElementById('b-guide').onclick=()=>guide.classList.add('open');
+document.getElementById('g-x').onclick=()=>guide.classList.remove('open');
+guide.onclick=e=>{ if(e.target===guide) guide.classList.remove('open'); };
+try{ if(!localStorage.getItem('hmv-guide')){ guide.classList.add('open'); localStorage.setItem('hmv-guide','1'); } }catch(e){}
 document.getElementById('crew').innerHTML = D.staff.map((s,i)=>`<button data-i="${i}"><div style="white-space:nowrap">${s.ids.map(id=>`<img src="assets/${id}.png" alt="" style="${s.ids.length>1?'height:44px;margin:8px -4px 8px':''}">`).join('')}</div><b>${s.name}</b><span>${s.role}</span></button>`).join('');
-document.querySelectorAll('#crew button').forEach(b=>b.onclick=()=>{ const s=D.staff[b.dataset.i]; show(PEOPLE.find(p=>p.staff===s)); window.scrollTo({top:0,behavior:'smooth'}); });
-draw(); setInterval(draw, 60000);
+document.querySelectorAll('#crew button').forEach(b=>b.onclick=()=>{ const s=D.staff[b.dataset.i], p=PEOPLE.find(q=>q.staff===s); show(p); talk(p, HELLO[p.id][0]); window.scrollTo({top:0,behavior:'smooth'}); });
+draw(); setInterval(draw, 30000);
 </script>
 </body>
 </html>
