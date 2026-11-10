@@ -81,7 +81,7 @@ footer a{color:var(--soft)}
     <li>가끔 복도를 지나 라운지나 회의실에 다녀오고, 낮 12시~1시엔 점심을 먹으러 모입니다 🍙</li>
     <li>위쪽 "오늘 신문 보기"로 우리 신문을 볼 수 있어요. 아래 크루 카드로 전체 크루를 볼 수 있습니다.</li>
     <li>🔊 버튼으로 효과음을 끌 수 있습니다.</li>
-    <li>크루의 출근·퇴근과 있는 방은 실제 사무실을 1~2분 늦게 따라가요. 말풍선의 하는 일은 평소 일과표예요. (사무실 컴퓨터가 쉬는 동안엔 일과표대로 움직여요)</li>
+    <li>크루의 출근·퇴근과 있는 방은 실제 사무실을 몇 분(길면 5분쯤) 늦게 따라가요. 말풍선의 하는 일은 평소 일과표예요. (사무실 컴퓨터가 쉬는 동안엔 일과표대로 움직여요)</li>
   </ul>
 </div></div>
 <footer>※ 본 콘텐츠는 AI를 활용하여 작성되었습니다. · Healing Mind Studio · <a href="old.html">예전 방문객 라운지</a></footer>
@@ -109,7 +109,7 @@ function onDuty(id, t){
   const [a,b] = (dow===6 && sh.sat) ? sh.sat : [sh.start, sh.end];
   return a <= hr(t) && hr(t) < b;
 }
-/* ---- 실제 사무실 상태표(11/10) — 아이맥 빌딩이 1분마다 바뀐 것만 올림: 크루 상태·나가 있는 방·점심/회의뿐. 20분 넘게 소식 없으면 평소 일과표 ---- */
+/* ---- 실제 사무실 상태표(11/10) — 아이맥 빌딩이 1분마다 바뀐 것만 올림: 크루 상태·나가 있는 방·점심/회의뿐. 20분 넘게 소식 없으면 평소 일과표. raw.githubusercontent는 5분 캐시라 최대 ~6분 늦음 ---- */
 let LIVE = null;
 const LIVE_URL = 'https://raw.githubusercontent.com/JooyongPa/HM-news/live/live.json';
 async function pullLive(){ try{ const r=await fetch(LIVE_URL+'?t='+Date.now(),{cache:'no-store'}); const j=await r.json(); LIVE=(Date.now()/1000-j.at<20*60)?j:null; }catch(e){ LIVE=null; } draw(); }
